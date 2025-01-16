@@ -1,0 +1,90 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-section {
+    background-color: #fff;
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-header h1 {
+    color: #B99765;
+    font-size: 32px;
+    font-weight: bold;
+}
+.contact-header p {
+    color:#717171;
+}
+.custom-height {
+    height: 400px; /* يمكن تغيير القيمة حسب الحاجة */
+}
+form {
+    margin-left: 5%;
+}
+.contact-info {
+    width: 90%;
+    background-color: #C1A780;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 6%;
+}
+
+.contact-info h4 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+.contact-info h6 {
+    color: #C9C9C9;
+}
+.contact-info p {
+    color: #ffffff;
+    margin: 10% 0;
+    font-size: 14px;
+}
+.custom-color {
+    color:#ffffff;
+}
+.btn-send {
+    background-color: #C1A780;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-send:hover {
+    background-color: #A38B6E;
+}
+
+.map-container {
+    margin-top: 30px;
+}
+
+footer {
+    background-color: #F6F0E9;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+footer a {
+    color: #C1A780;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
