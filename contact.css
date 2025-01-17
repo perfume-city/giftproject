@@ -4,7 +4,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .contact-section {
     background-color: #fff;
     padding: 50px 20px;
@@ -26,7 +25,7 @@ body {
     color:#717171;
 }
 .custom-height {
-    height: 400px; /* يمكن تغيير القيمة حسب الحاجة */
+    height: 400px;
 }
 form {
     margin-left: 5%;
@@ -69,7 +68,10 @@ form {
 }
 
 .map-container {
-    margin-top: 30px;
+    margin: 4% 7%;
+}
+iframe {
+    border-radius: 10px;
 }
 
 footer {
