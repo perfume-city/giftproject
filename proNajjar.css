@@ -132,6 +132,9 @@ h2 span {
   margin-bottom: 3rem;
 }
 #readMoreButtonBox1 {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
   padding: 15px 30px;
   font-size: 18px;
   color: white;
@@ -153,6 +156,9 @@ h2 span {
 }
 
 #readMoreButtonBox2 {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
   padding: 15px 30px;
   font-size: 18px;
   color: white;
@@ -174,6 +180,9 @@ h2 span {
 }
 
 #readMoreButtonBox3 {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
   padding: 15px 30px;
   font-size: 18px;
   color: white;
