@@ -1,12 +1,11 @@
-document.getElementById('loginForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+const registerButton = document.getElementById("register");
+const loginButton = document.getElementById("login");
+const container = document.getElementById("container");
 
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+registerButton.addEventListener("click", () => {
+  container.classList.add("right-panel-active");
+});
 
-    if (email === '' || password === '') {
-        alert('Please fill in all fields.');
-    } else {
-        alert('Login successful!');
-    }
+loginButton.addEventListener("click", () => {
+  container.classList.remove("right-panel-active");
 });
