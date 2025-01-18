@@ -71,7 +71,7 @@
 
   <header class="hero-section">
     <div class="container">
-      <h1 class="hero-title">Who We Are</h1>
+      <h1 class="hero-title" data-aos="flip-down">Who We Are</h1>
       <p class="hero-subtitle">Skincare is a crowded market. 'Natural’ has become the new “normal” - and normal is boring. That's why we go a step further with our waste-fighting formulations. Each product in our range sources and rescues by-products from other industries – the food and drink industry in particular. We believe circular / by-product beauty will be the next step – we’re proud to be pioneering that movement.</p>
       <div>
         <img src="./aboutusimages/1.jpeg" alt="Logo" class="image">
@@ -88,23 +88,24 @@
   <div data-aos="fade-right">
   <section class="content-section">
     <div class="container">
-      <!-- <h2>Who We Are</h2> -->
+    
       <div class="team">
         <div class="card card0">
           <div class="border">
             <h2>OUR ROOTS </h2>
-            <p>We're a family run company founded by mom and sister Anna and Will eight short years ago. Our founders were in their early 20s when they launched the brand and believe in making products that they would've bought at that age. Price point shouldn’t be a barrier to planet-friendly purchasing and sustainability should not be an elite privilege. Ethical, sustainable, fair trade ingredients cost more, but we’re committed to remaining a brand accessible for all.</p>
+           
             <div class="icon">
               <i class="fa fa-instagram" aria-hidden="true"></i>
               <i class="fa fa-twitter" aria-hidden="true"></i>
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </div>
           </div>
+
         </div>
+
         <div class="card card1">
           <div class="border">
             <h2>OUR VISION </h2>
-            <p>We strive to be a beauty brand that encourages and inspires people to make the right choices for themselves and the planet. We believe that providing competitively priced, high performing products from upcycled ingredients demonstrates that the beauty industry CAN be less wasteful. products are all inclusive - we are body positive, gender neutral, represent all ages and encourage diversity. Our vision encompasses passion for sustainable beauty and always will. We stand for authentic, real beauty in its many forms.</p>
             <div class="icon">
               <i class="fa fa-instagram" aria-hidden="true"></i>
               <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -113,9 +114,12 @@
           </div>
         </div>
       </div>
+
     </div>
+    
   </section>
 </div>
+
 <div data-aos="flip-up">
   <section class="hero-section">
     <div class="container">
@@ -223,7 +227,27 @@
       </div>
     </div>
   </footer>
+  <script>
+    // Select elements
+    const card0 = document.querySelector('.card0');
+    const card1 = document.querySelector('.card1');
+    const replacementText = document.querySelector('.replacement-text');
 
+    // Add hover event listener to card0
+    card0.addEventListener('mouseover', () => {
+      // Hide card1
+      card1.classList.add('hidden');
+      // Show replacement text
+      replacementText.style.display = 'block';
+    });
+
+    card0.addEventListener('mouseout', () => {
+      // Show card1
+      card1.classList.remove('hidden');
+      // Hide replacement text
+      replacementText.style.display = 'none';
+    });
+  </script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
