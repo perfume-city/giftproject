@@ -23,12 +23,14 @@ signUpForm.addEventListener("submit", async (e) => {
   const username = formData.get("username");
   const email = formData.get("email");
   const password = formData.get("password");
+  const phoneNumber = formData.get("phonenumber");
 
   // Regex patterns for email and password validation
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+  const phoneNumberPattern = /^07\d{8}$/;
 
-  if (!username || !email || !password) {
+  if (!username || !email || !password || !phoneNumber) {
     registrationMessage.textContent = "Please fill in all fields.";
     return;
   }
@@ -44,6 +46,12 @@ signUpForm.addEventListener("submit", async (e) => {
     return;
   }
 
+  if (!phoneNumberPattern.test(phoneNumber)) {
+    registrationMessage.textContent =
+      "Phone number must be 10 digits and start with 07.";
+    return;
+  }
+
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
@@ -51,7 +59,7 @@ signUpForm.addEventListener("submit", async (e) => {
       password
     );
     const user = userCredential.user;
-    const userData = { username, email, password };
+    const userData = { username, email, password, phoneNumber };
 
     await setDoc(doc(firestore, "users", user.uid), userData);
     await set(ref(database, `users/${user.uid}`), userData);
@@ -63,7 +71,7 @@ signUpForm.addEventListener("submit", async (e) => {
       window.location.href = "./index.html";
     }, 1000);
   } catch (error) {
-    registrationMessage.textContent = `  ${error.message}`;
+    registrationMessage.textContent = `${error.message}`;
   }
 });
 
