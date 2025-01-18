@@ -135,6 +135,19 @@ body {
 .icon-link i:hover {
     color: #000;
 }
+
+#logoutButton a {
+    color: #555;
+    text-decoration: none;
+}
+
+#logoutButton a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+ /* user profile */
+
 .profile-container {
     max-width: 50%;
     height: 730px;

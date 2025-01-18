@@ -18,6 +18,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -69,35 +73,35 @@
       </div>
     </nav>
 
-    <h2>
+    <h2 data-aos="zoom-in" data-aos-duration="1500">
       Gifts
       <span>Boxes</span>
     </h2>
 
-    <h2>Box 1 <br /></h2>
+    <h2 data-aos="fade-up" data-aos-duration="1000">Box 1 <br /></h2>
     <div class="group" id="box1">
-      <div class="item" style="--url: url('images/salmon curry.gif')">
+      <div class="item" style="--url: url('images/salmon curry.gif')"   data-aos="flip-right">
         <div class="overlay"></div>
         <div class="menu">
           <label>Salmon Curry</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/fish sandwich.gif')">
+      <div class="item" style="--url: url('images/fish sandwich.gif')" data-aos="flip-left">
         <div class="overlay"></div>
         <div class="menu">
           <label>Fish Sandwich</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/shakshouka.gif')">
+      <div class="item" style="--url: url('images/shakshouka.gif')" data-aos="zoom-in-up">
         <div class="overlay"></div>
         <div class="menu">
           <label>Shakshouka</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/creme brulee.gif')">
+      <div class="item" style="--url: url('images/creme brulee.gif')"   data-aos="fade-in">
         <div class="overlay"></div>
         <div class="menu">
           <label>Creme brulee</label>
@@ -105,35 +109,35 @@
       </div>
     </div>
 
-    <div class="btnA">
+    <div class="btnA" data-aos="fade-up" data-aos-delay="500">
       <button id="readMoreButtonBox1">Read More</button>
       <button id="readMoreButtonBox1">Checkout</button>
     </div>
 
-    <h2>Box 2 <br /></h2>
+    <h2 data-aos="fade-up" data-aos-duration="1000">Box 2 <br /></h2>
     <div class="group" id="box2">
-      <div class="item" style="--url: url('images/salmon curry.gif')">
+      <div class="item" style="--url: url('images/salmon curry.gif')" data-aos="flip-right">
         <div class="overlay"></div>
         <div class="menu">
           <label>Salmon Curry</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/fish sandwich.gif')">
+      <div class="item" style="--url: url('images/fish sandwich.gif')" data-aos="flip-left">
         <div class="overlay"></div>
         <div class="menu">
           <label>Fish Sandwich</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/shakshouka.gif')">
+      <div class="item" style="--url: url('images/shakshouka.gif')" data-aos="zoom-in-up">
         <div class="overlay"></div>
         <div class="menu">
           <label>Shakshouka</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/creme brulee.gif')">
+      <div class="item" style="--url: url('images/creme brulee.gif')" data-aos="fade-in">
         <div class="overlay"></div>
         <div class="menu">
           <label>Creme brulee</label>
@@ -141,35 +145,35 @@
       </div>
     </div>
 
-    <div class="btnA">
+    <div class="btnA" data-aos="fade-up" data-aos-delay="500">
       <button id="readMoreButtonBox2">Read More</button>
       <button id="readMoreButtonBox2">Checkout</button>
     </div>
 
     <h2>Box 3 <br /></h2>
     <div class="group" id="box3">
-      <div class="item" style="--url: url('images/salmon curry.gif')">
+      <div class="item" style="--url: url('images/salmon curry.gif')" data-aos="flip-right">
         <div class="overlay"></div>
         <div class="menu">
           <label>Salmon Curry</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/fish sandwich.gif')">
+      <div class="item" style="--url: url('images/fish sandwich.gif')" data-aos="flip-left">
         <div class="overlay"></div>
         <div class="menu">
           <label>Fish Sandwich</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/shakshouka.gif')">
+      <div class="item" style="--url: url('images/shakshouka.gif')" data-aos="zoom-in-up">
         <div class="overlay"></div>
         <div class="menu">
           <label>Shakshouka</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/creme brulee.gif')">
+      <div class="item" style="--url: url('images/creme brulee.gif')" data-aos="fade-in">
         <div class="overlay"></div>
         <div class="menu">
           <label>Creme brulee</label>
@@ -177,7 +181,7 @@
       </div>
     </div>
 
-    <div class="btnA">
+    <div class="btnA" data-aos="fade-up" data-aos-delay="500">
       <button id="readMoreButtonBox3">Read More</button>
       <button id="readMoreButtonBox3">Checkout</button>
     </div>
@@ -362,7 +366,11 @@
           });
       });
     </script>
-    <script src="signchecked.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
+  <script type="module" src="signchecked.js"></script>
 
   </body>
 </html>
