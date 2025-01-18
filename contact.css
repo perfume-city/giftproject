@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     margin: 0;
     padding: 0;
 }
@@ -136,8 +136,10 @@ body {
     color: #000;
 }
 .contact-section {
-    background-color: #f9f9f9;
-    padding: 50px 20px;
+    max-width: 90%;
+    margin: 0 auto;
+    background-color: #fefefe;
+    padding: 30px 10px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -156,34 +158,42 @@ body {
     color:#717171;
 }
 .custom-height {
-    height: 400px;
+    height: 460px;
 }
 form {
-    margin-left: 5%;
+    width: 100%;
+    margin-left:14%;
+    margin-top: 2%;
 }
 .contact-info {
-    width: 90%;
+    width: 100%;
     background-color: #C1A780;
-    padding: 20px;
+    padding: 20px 30px;
     border-radius: 10px;
     margin-left: 6%;
-    /* background-image:url(images/contactimg.png); */
 }
 
 .contact-info h4 {
+    font-weight: 550;
     color: #ffffff;
     margin-bottom: 15px;
 }
 .contact-info h6 {
-    color: #C9C9C9;
+    color: #dddddd;
 }
 .contact-info p {
     color: #ffffff;
-    margin: 10% 0;
+    margin: 14% 0;
     font-size: 14px;
+}
+.contact-info p span {
+    margin-left: 4%;
 }
 .custom-color {
     color:#ffffff;
+}
+.icons-c {
+    margin-top: 18%;
 }
 .btn-send {
     background-color: #C1A780;
@@ -193,6 +203,7 @@ form {
     border-radius: 5px;
     font-size: 14px;
     font-weight: bold;
+    transition: 0.4s ease-in-out;
 }
 
 .btn-send:hover {
@@ -200,7 +211,8 @@ form {
 }
 
 .map-container {
-    margin: 4% 7%;
+    margin: 5% 11%;
+    margin-bottom: 8%;
 }
 iframe {
     border-radius: 10px;
