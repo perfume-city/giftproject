@@ -23,12 +23,14 @@ signUpForm.addEventListener("submit", async (e) => {
   const username = formData.get("username");
   const email = formData.get("email");
   const password = formData.get("password");
+  const phoneNumber = formData.get("phonenumber");
 
   // Regex patterns for email and password validation
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+  const phoneNumberPattern = /^07\d{8}$/;
 
-  if (!username || !email || !password) {
+  if (!username || !email || !password || !phoneNumber) {
     registrationMessage.textContent = "Please fill in all fields.";
     return;
   }
@@ -44,6 +46,12 @@ signUpForm.addEventListener("submit", async (e) => {
     return;
   }
 
+  if (!phoneNumberPattern.test(phoneNumber)) {
+    registrationMessage.textContent =
+      "Phone number must be 10 digits and start with 07.";
+    return;
+  }
+
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
@@ -51,19 +59,20 @@ signUpForm.addEventListener("submit", async (e) => {
       password
     );
     const user = userCredential.user;
-    const userData = { username, email, password };
+    const userData = { username, email, phoneNumber };
 
     await setDoc(doc(firestore, "users", user.uid), userData);
     await set(ref(database, `users/${user.uid}`), userData);
 
     localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("isNewUser", "true"); // Mark as new user
 
     registrationMessage.textContent = "Registration successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
     }, 1000);
   } catch (error) {
-    registrationMessage.textContent = `  ${error.message}`;
+    registrationMessage.textContent = `${error.message}`;
   }
 });
 
@@ -102,13 +111,14 @@ signInForm.addEventListener("submit", async (e) => {
       uid: user.uid,
     };
     localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("isNewUser", "false"); // Mark as returning user
 
     signInMessage.textContent = "Sign-in successful!";
     setTimeout(() => {
-      window.location.href = " ./index.html";
+      window.location.href = "./index.html";
     }, 1000);
   } catch (error) {
-    signInMessage.textContent = `  ${error.message}`;
+    signInMessage.textContent = `${error.message}`;
   }
 });
 
@@ -133,13 +143,14 @@ googleSignInBtn.addEventListener("click", async () => {
     await set(ref(database, `users/${user.uid}`), userData);
 
     localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("isNewUser", "true"); // Mark as new user
 
     registrationMessage.textContent = "Google sign-in successful!";
     setTimeout(() => {
-      window.location.href = " ./index.html";
+      window.location.href = "./index.html";
     }, 4000);
   } catch (error) {
-    registrationMessage.textContent = `  ${error.message}`;
+    registrationMessage.textContent = `${error.message}`;
   }
 });
 
@@ -164,13 +175,14 @@ googleSignUpBtn.addEventListener("click", async () => {
     await set(ref(database, `users/${user.uid}`), userData);
 
     localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("isNewUser", "true"); // Mark as new user
 
     registrationMessage.textContent = "Google sign-up successful!";
     setTimeout(() => {
-      window.location.href = " ./index.html";
+      window.location.href = "./index.html";
     }, 4000);
   } catch (error) {
-    registrationMessage.textContent = `  ${error.message}`;
+    registrationMessage.textContent = `${error.message}`;
   }
 });
 
@@ -190,13 +202,14 @@ facebookSignInBtn.addEventListener("click", async () => {
     await setDoc(doc(firestore, "users", user.uid), userData);
 
     localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("isNewUser", "true"); // Mark as new user
 
     registrationMessage.textContent = "Facebook sign-in successful!";
     setTimeout(() => {
-      window.location.href = " ./index.html";
+      window.location.href = "./index.html";
     }, 4000);
   } catch (error) {
-    registrationMessage.textContent = `  ${error.message}`;
+    registrationMessage.textContent = `${error.message}`;
   }
 });
 
@@ -216,13 +229,14 @@ facebookSignUpBtn.addEventListener("click", async () => {
     await setDoc(doc(firestore, "users", user.uid), userData);
 
     localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("isNewUser", "true"); // Mark as new user
 
     registrationMessage.textContent = "Facebook sign-up successful!";
     setTimeout(() => {
-      window.location.href = " ./index.html";
+      window.location.href = "./index.html";
     }, 4000);
   } catch (error) {
-    registrationMessage.textContent = `  ${error.message}`;
+    registrationMessage.textContent = `${error.message}`;
   }
 });
 
