@@ -166,6 +166,7 @@
 
 .footer-section {
     flex: 1 1 30%;
+    margin-left: 1.5rem;
 }
 
 .footer-logo img {
@@ -262,6 +263,9 @@
 
 .footer-links a:hover {
     color: #343a40;
+}
+.brand-name {
+    color: #AB8E66;
 }
 
 /****end style for footer***/

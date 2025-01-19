@@ -247,6 +247,7 @@ iframe {
 
 .footer-section {
     flex: 1 1 30%;
+    margin-left: 1.5rem;
 }
 
 .footer-logo img {
@@ -346,5 +347,5 @@ iframe {
 }
 
 .brand-name {
-    color: #fd7e14;
+    color: #A38B6E;
 }
