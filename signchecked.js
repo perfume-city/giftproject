@@ -34,15 +34,96 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.removeItem("userData");
       localStorage.removeItem("isNewUser"); // Clear the flag on logout
       window.location.reload(); // Reload the page to update UI
+      window.location.href = "./index.html";
+    });
+
+    // Populate the user profile form
+    document.getElementById("header-name").innerHTML = userData.username || "User";
+    document.getElementById("fullName").value = userData.username || "";
+    document.getElementById("email").value = userData.email || "";
+    document.getElementById("phone").value = userData.phoneNumber || "";
+
+
+    // Save Changes (Edit Profile)
+    const saveButton = document.getElementById("save");
+    saveButton.addEventListener("click", () => {
+      const newHeaderName = document.getElementById("header-name").innerHTML.trim();
+      const newFullName = document.getElementById("editFullName").value.trim();
+      const newPhone = document.getElementById("editPhone").value.trim();
+
+      if (!newFullName || !/^\w+(\s\w+)*$/.test(newFullName)) {
+        Swal.fire({
+          title: "Invalid Name",
+          text: "Please enter a valid full name.",
+          icon: "error",
+        });
+        return;
+      }
+
+      if (!newPhone || !/^07\d{8}$/.test(newPhone)) {
+        Swal.fire({
+          title: "Invalid Phone",
+          text: "Phone number must be 10 digits and start with 07.",
+          icon: "error",
+        });
+        return;
+      }
+
+      // Update user data
+      userData.username = newFullName;
+      userData.phoneNumber = newPhone;
+      // Save updated user data locally
+      localStorage.setItem("userData", JSON.stringify(userData));
+
+      Swal.fire({
+        title: "Profile Updated",
+        text: "Your changes have been saved successfully.",
+        icon: "success",
+      }).then(() => {
+        // Update form fields
+        document.getElementById("fullName").value = userData.username;
+        document.getElementById("phone").value = userData.phoneNumber;
+        document.getElementById("editFullName").value = "";
+        document.getElementById("editPhone").value = "";
+        document.getElementById("header-name").innerHTML = userData.username;
+        profileName.textContent = userData.username;
+      });
+    });
+
+    // Delete Profile
+    const deleteButton = document.querySelector(".btn-danger");
+    deleteButton.addEventListener("click", () => {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "This action will delete your profile and cannot be undone.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "Cancel",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Clear user data
+          localStorage.removeItem("userData");
+          localStorage.removeItem("isNewUser");
+
+          Swal.fire({
+            title: "Profile Deleted",
+            text: "Your profile has been deleted successfully.",
+            icon: "success",
+          }).then(() => {
+            window.location.href = "./signinup.html"; // Redirect to login page
+          });
+        }
+      });
     });
   } else {
-    // User is not logged in, show 'Sign In'
+    // User is not logged in
     profileName.textContent = "Sign In";
     profileIcon.addEventListener("click", () => {
       window.location.href = "./signinup.html"; // Redirect to login page
     });
 
-    // Hide logout button if not logged in
+    // Hide logout button
     logoutButton.style.display = "none";
   }
 });

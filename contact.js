@@ -55,6 +55,10 @@ document.getElementById("feedbackForm").addEventListener("submit", function (e) 
     })
     .catch((error) => {
       console.error("خطأ أثناء تخزين البيانات: ", error);
-      alert("حدث خطأ أثناء إرسال الرسالة. حاول مرة أخرى.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "An error occurred while sending the message.Please try again.",
+      });
     });
 });
