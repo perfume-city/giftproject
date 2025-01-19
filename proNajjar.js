@@ -11,7 +11,6 @@ const expand = (item, i) => {
     it.clicked = false;
   });
 
-  //item
   gsap.killTweensOf(items);
   gsap.to(items, {
     width: item.clicked ? "10vw" : "8vw",
@@ -27,7 +26,6 @@ const expand = (item, i) => {
     ease: "elastic(1, .3)",
   });
 
-  //overlay
   gsap.killTweensOf(overlays);
   gsap.to(overlays, {
     opacity: item.clicked ? "1" : "1",
@@ -43,7 +41,6 @@ const expand = (item, i) => {
     ease: "elastic(1, .3)",
   });
 
-  //menu
   gsap.killTweensOf(menus);
   gsap.to(menus, {
     opacity: item.clicked ? "0" : "0",
@@ -66,4 +63,30 @@ items.forEach((item, i) => {
   item.childNodes[3].clicked = false;
 
   item.addEventListener("click", () => expand(item, i));
+});
+
+const modal = document.getElementById("myModal");
+const closeBtn = document.querySelector(".close");
+
+document.querySelectorAll(".read-more").forEach((button) => {
+  button.addEventListener("click", () => {
+    modal.style.display = "block";
+    const item = button.closest(".item");
+    const title = item.querySelector("label").textContent;
+    const description = "Description for " + title;
+    const image = item.querySelector("div").style.backgroundImage.split('"')[1];
+    modal.querySelector(".modal-title").textContent = title;
+    modal.querySelector(".modal-description").textContent = description;
+    modal.querySelector(".modal-image").src = image;
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
 });
