@@ -19,7 +19,7 @@
     <div class="nav-container">
         <!-- Logo (Top Section) -->
         <div class="logo-container">
-            <a href="#">
+            <a href="index.html">
                 <img src="./images/logo.png" alt="Logo" class="logo-image">
             </a>
         </div>
@@ -27,14 +27,15 @@
         <!-- Categories and Search Bar (Middle Section) -->
         <div class="categories-search-container">
             <ul class="categories">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Face</a></li>
-                <li><a href="#">Body</a></li>
-                <li><a href="#">Hair</a></li>
-                <li><a href="#">Women Perfume</a></li>
-                <li><a href="#">Men Perfume</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="natural.html">Natural</a></li>
+                <li><a href="bodyCare.html">Body</a></li>
+                <li><a href="hairCare.html">Hair</a></li>
+                <li><a href="PerfumeW.html">Women Perfume</a></li>
+                <li><a href="perfumeM.html">Men Perfume</a></li>
+                <li><a href="proNajar.html">Gift Box</a></li>
+                <li><a href="aboutus.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
             </ul>
             <!-- Search Bar -->
             <div class="search-bar">
@@ -43,27 +44,24 @@
             </div>
         </div>
 
-        <!-- Icons (Right Section) -->
-        <div class="icons-container">
-            <div class="icon-link profile-icon">
-                <a href="#"><i class="fas fa-user"></i></a>
-                <span>Sign In</span>
-            </div>
-            <div class="icon-link wishlist-icon">
-                <a href="#"><i class="fas fa-heart"></i></a>
-                <span>Wishlist</span>
-            </div>
-        </div>
+         <!-- Icons (Right Section) -->
+         <div class="icons-container">
+          <div class="icon-link profile-icon" id="profileIcon">
+              <a href="#"><i class="fas fa-user"></i></a>
+              <span id="profileName">Sign In</span>
+          </div>
+          <!-- Logout Button (Initially hidden) -->
+          <div class="icon-link" id="logoutButton" style="display: none">
+              <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><Span> Log Out</Span></a>
+          </div>
+          <div class="icon-link wishlist-icon">
+              <a href="wichlist.html"><i class="fas fa-heart"></i></a>
+              <span>Wishlist</span>
+          </div>
+      </div>
     </div>
     </div>
 </nav>
-  
-  <!-- <main> -->
-    <!-- صورة فوق البيانات -->
-    <!-- <div class="image-container">
-      <img src="checkout.jpg" alt="Checkout Banner">
-      <div class="image-text">CHECKOUT</div>
-    </div> -->
 
     <main class="container my-5">
         <div class="row">
@@ -124,42 +122,6 @@
             </form>
           </div>
         </div>
-    <!-- نموذج البيانات
-    <form id="billingForm" class="billing-form">
-      <label for="firstName">First Name *</label>
-      <input type="text" id="firstName" name="firstName" required>
-
-      <label for="lastName">Last Name *</label>
-      <input type="text" id="lastName" name="lastName" required>
-
-      <label for="productName">Product Name</label>
-      <input type="text" id="productName" name="productName" required>
-
-      <label for="productPrice">Price</label>
-      <input type="number" id="productPrice" name="productPrice">
-
-      <label for="country">Country / Region *</label>
-      <select id="country" name="country" required>
-        <option value="Amman" selected>Amman</option>
-        <option value="Irbid">Irbid</option>
-        <option value="Balqa">Balqa</option>
-        <option value="Aqaba">Aqaba</option>
-      </select>
-
-      <label for="phone">Phone *</label>
-      <input type="tel" id="phone" name="phone" required>
-
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="additionalInfo">Additional Information</label>
-      <textarea id="additionalInfo" name="additionalInfo" rows="5" placeholder="Notes about your order, e.g., special notes for delivery."></textarea>
-
-      <label for="refillScheme">Refill Scheme</label>
-      <textarea id="refillScheme" name="refillScheme" rows="5" placeholder="Number & type of products"></textarea>
-
-      <button type="submit">Submit</button>
-    </form> -->
   </main>
 
    <!-- Footer -->
@@ -185,13 +147,13 @@
             <div class="quick-menu">
                 <h3 class="footer-title">Quick Menu</h3>
                 <ul class="footer-menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Face</a></li>
-                    <li><a href="#">Body</a></li>
-                    <li><a href="#">Hair</a></li>
-                    <li><a href="#">Men Perfumes</a></li>
-                    <li><a href="#">Women Perfumes</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="natural.html">Natural</a></li>
+                    <li><a href="bodyCare.html">Body</a></li>
+                    <li><a href="hairCare.html">Hair</a></li>
+                    <li><a href="perfumeM.html">Men Perfumes</a></li>
+                    <li><a href="PerfumeW.html">Women Perfumes</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
                 </ul>
             </div>
         </div>
@@ -221,5 +183,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
   crossorigin="anonymous"></script>
+  <script type="module" src="signchecked.js"></script>
 </body>
 </html>

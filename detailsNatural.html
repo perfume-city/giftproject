@@ -17,7 +17,7 @@
             <div class="nav-container">
                 <!-- Logo (Top Section) -->
                 <div class="logo-container">
-                    <a href="#">
+                    <a href="index.html">
                         <img src="./images/logo.png" alt="Logo" class="logo-image">
                     </a>
                 </div>
@@ -25,14 +25,15 @@
                 <!-- Categories and Search Bar (Middle Section) -->
                 <div class="categories-search-container">
                     <ul class="categories">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Face</a></li>
-                        <li><a href="#">Body</a></li>
-                        <li><a href="#">Hair</a></li>
-                        <li><a href="#">Women Perfume</a></li>
-                        <li><a href="#">Men Perfume</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Contact us</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="natural.html">Natural</a></li>
+                        <li><a href="bodyCare.html">Body</a></li>
+                        <li><a href="hairCare.html">Hair</a></li>
+                        <li><a href="PerfumeW.html">Women Perfume</a></li>
+                        <li><a href="perfumeM.html">Men Perfume</a></li>
+                        <li><a href="proNajar.html">Gift Box</a></li>
+                        <li><a href="aboutus.html">About us</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
                     </ul>
                     <!-- Search Bar -->
                     <div class="search-bar">
@@ -42,16 +43,20 @@
                 </div>
     
                 <!-- Icons (Right Section) -->
-                <div class="icons-container">
-                    <div class="icon-link profile-icon">
-                        <a href="#"><i class="fas fa-user"></i></a>
-                        <span>Sign In</span>
-                    </div>
-                    <div class="icon-link wishlist-icon">
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <span>Wishlist</span>
-                    </div>
+            <div class="icons-container">
+                <div class="icon-link profile-icon" id="profileIcon">
+                    <a href="#"><i class="fas fa-user"></i></a>
+                    <span id="profileName">Sign In</span>
                 </div>
+                <!-- Logout Button (Initially hidden) -->
+                <div class="icon-link" id="logoutButton" style="display: none">
+                    <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><Span> Log Out</Span></a>
+                </div>
+                <div class="icon-link wishlist-icon">
+                    <a href="wichlist.html"><i class="fas fa-heart"></i></a>
+                    <span>Wishlist</span>
+                </div>
+            </div>
             </div>
             </div>
         </nav>
@@ -70,7 +75,7 @@
                   <label for="quantity">Qty:</label>
                   <input type="number" id="quantity" name="quantity" value="1" min="1">
                 </div>
-                <button>Checkout</button>
+                <a href="checkout.html"><button>Checkout</button></a>
                 <button>Add to wishlist</button>
               </div>
             </div>
@@ -143,13 +148,13 @@
                         <div class="quick-menu">
                             <h3 class="footer-title">Quick Menu</h3>
                             <ul class="footer-menu">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Face</a></li>
-                                <li><a href="#">Body</a></li>
-                                <li><a href="#">Hair</a></li>
-                                <li><a href="#">Men Perfumes</a></li>
-                                <li><a href="#">Women Perfumes</a></li>
-                                <li><a href="#">About Us</a></li>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="natural.html">Natural</a></li>
+                                <li><a href="bodyCare.html">Body</a></li>
+                                <li><a href="hairCare.html">Hair</a></li>
+                                <li><a href="perfumeM.html">Men Perfumes</a></li>
+                                <li><a href="PerfumeW.html">Women Perfumes</a></li>
+                                <li><a href="aboutus.html">About Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -176,6 +181,7 @@
             </footer>
   
             <script type="module" src="detailsNatural.js"></script>
+            <script type="module" src="signchecked.js"></script>
 
 </body>
 </html>
