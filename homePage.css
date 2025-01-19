@@ -130,6 +130,16 @@
     color: #000;
 }
 
+#logoutButton a {
+    color: #555;
+    text-decoration: none;
+}
+
+#logoutButton a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
 /* Carousel */
 .carousel-item img {
     height: 70vh; /* Adjust height as needed */
