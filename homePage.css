@@ -608,6 +608,7 @@ section {
 
 .footer-section {
     flex: 1 1 30%;
+    margin-left: 1.5rem;
 }
 
 .footer-logo img {
@@ -707,7 +708,7 @@ section {
 }
 
 .brand-name {
-    color: #fd7e14;
+    color: #AB8E66;
 }
 /* Small Screens (Phones, up to 576px) */
 @media (max-width: 576px) {
