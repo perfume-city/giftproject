@@ -12,72 +12,63 @@
   <link rel="stylesheet" href="aboutus.css">
 </head>
 <body>
-   <!-- Navbar -->
+  <!-- Sticky Navbar -->
   <nav class="navbar">
-    <div class="container">
-      <!-- Logo and Icons Row -->
-      <div class="top-row">
-        <!-- Logo -->
-        <div class="logo-container">
-          <a href="#">
-            <img src="./images/logo.png" alt="Logo" class="logo-image">
-          </a>
-        </div>
-        
-
-          <!-- Icons (Right Section) -->
-          <div class="icons-container">
-            <div class="icon-link profile-icon">
-                <a href="#"><i class="fas fa-user"></i></a>
-                <span>Sign In</span>
-            </div>
-            <div class="icon-link wishlist-icon">
-                <a href="#"><i class="fas fa-heart"></i></a>
-                <span>Wishlist</span>
-            </div>
-        </div>
-    </div>
-    </div>
-
-      <!-- Hamburger Menu -->
-      <div class="hamburger-menu" id="hamburger-menu">
-        <i class="fas fa-bars"></i>
+    <div class="nav-container">
+      <!-- Logo (Top Section) -->
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="./images/logo.png" alt="Logo" class="logo-image" />
+        </a>
       </div>
 
-      <!-- Categories -->
-      <ul class="categories" id="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="">Face</a></li>
-        <li><a href="">Body</a></li>
-        <li><a href="">Hair</a></li>
-        <li><a href="perfumeM.html">Men Perfume</a></li>
-        <li><a href="PerfumeW.html">Women Perfum</a>
-        <li><a href="boxgift.html">box gift</a></li>
-        <li><a href="aboutus.html">About us</a></li>
-        <li><a href="contact.html">Contact us</a></li>
+      <!-- Categories and Search Bar (Middle Section) -->
+      <div class="categories-search-container">
+        <ul class="categories">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Face</a></li>
+          <li><a href="#">Body</a></li>
+          <li><a href="#">Hair</a></li>
+          <li><a href="PerfumeW.html">Women Perfume</a></li>
+          <li><a href="perfumeM.html">Men Perfume</a></li>
+          <li><a href="proNajar.html">Gift Box</a></li>
+          <li><a href="aboutus.html">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </div>
 
-        </li>
-      </ul>
+      <!-- Icons (Right Section) -->
+      <div class="icons-container">
+        <div class="icon-link profile-icon" id="profileIcon">
+          <a href="#"><i class="fas fa-user"></i></a>
+          <span id="profileName">Sign In</span>
+        </div>
+        <!-- Logout Button (Initially hidden) -->
+        <div class="icon-link" id="logoutButton" style="display: none">
+          <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><Span> Log Out</Span></a>
+        </div>
+        <div class="icon-link wishlist-icon">
+          <a href="#"><i class="fas fa-heart"></i></a>
+          <span>Wishlist</span>
+        </div>
+      </div>
     </div>
-     
-  <!-- Search Bar -->
-  <div class="search-container">
-    <input type="text" class="search-input" placeholder="Search...">
-    <button class="search-button">
-      <i class="fas fa-search"></i>
-    </button>
-  </div>
   </nav>
 
   <header class="hero-section">
     <div class="container">
       <h1 class="hero-title" data-aos="flip-down">Who We Are</h1>
-      <p class="hero-subtitle">Skincare is a crowded market. 'Natural’ has become the new “normal” - and normal is boring. That's why we go a step further with our waste-fighting formulations. Each product in our range sources and rescues by-products from other industries – the food and drink industry in particular. We believe circular / by-product beauty will be the next step – we’re proud to be pioneering that movement.</p>
+      <p class="hero-subtitle" data-aos="flip-up">Skincare is a crowded market. 'Natural’ has become the new “normal” - and normal is boring. That's why we go a step further with our waste-fighting formulations. Each product in our range sources and rescues by-products from other industries – the food and drink industry in particular. We believe circular / by-product beauty will be the next step – we’re proud to be pioneering that movement.</p>
       <div>
-        <img src="./aboutusimages/1.jpeg" alt="Logo" class="image">
-        <img src="./aboutusimages/2.jpeg" alt="Logo" class="image">
-        <img src="./aboutusimages/3.jpeg" alt="Logo" class="image">
-        <img src="./aboutusimages/4.jpeg" alt="Logo" class="image">
+        <img src="./aboutusimages/1.png" alt="Logo" class="image" data-aos="flip-up">
+        <img src="./aboutusimages/2.png" alt="Logo" class="image" data-aos="flip-up">
+        <img src="./aboutusimages/3.png" alt="Logo" class="image" data-aos="flip-up">
+        <img src="./aboutusimages/4.png" alt="Logo" class="image" data-aos="flip-up">
 
 
 
@@ -156,13 +147,13 @@
   
   <div class="hero-section">
     <div class="container">
-      <h3 class="hero-title">OUR APPROACH</h3>
-      <p class="hero-subtitle">At UpCircle we focus on positive change so that we can all make a difference in small steps. Our aim is to reduce waste in a variety of industries, and we are proud to support low-income workers around the world where we can. At UpCircle we believe that it is our responsibility to ensure that we are keeping ourselves informed of the latest innovations so that our products are the best that they can be! We like sharing our ideas with our community of UpCirclers, we like asking our audience questions and value their insights, we like being held accountable, we like discussion – we pride ourselves on transparency!</p>
+      <h3 class="hero-title" data-aos="flip-up">OUR APPROACH</h3>
+      <p class="hero-subtitle" data-aos="flip-up"> we focus on positive change so that we can all make a difference in small steps. Our aim is to reduce waste in a variety of industries, and we are proud to support low-income workers around the world where we can.  we believe that it is our responsibility to ensure that we are keeping ourselves informed of the latest innovations so that our products are the best that they can be! We like sharing our ideas with our community of UpCirclers, we like asking our audience questions and value their insights, we like being held accountable, we like discussion – we pride ourselves on transparency!</p>
       <div>
-        <img src="./aboutusimages/5.jpeg" alt="Logo" class="mage">
-        <img src="./aboutusimages/6.jpeg" alt="Logo" class="image">
-        <img src="./aboutusimages/7.jpeg" alt="Logo" class="image">
-        <img src="./aboutusimages/8.jpeg" alt="Logo" class="image">
+        <img src="./aboutusimages/5.png" alt="Logo" class="mage" data-aos="flip-up">
+        <img src="./aboutusimages/6.png" alt="Logo" class="image" data-aos="flip-up">
+        <img src="./aboutusimages/7.png" alt="Logo" class="image" data-aos="flip-up">
+        <img src="./aboutusimages/8.png" alt="Logo" class="image" data-aos="flip-up">
 
 
 
@@ -175,7 +166,7 @@
       <!-- Section 1: Brand Description -->
       <div class="footer-section">
         <div class="footer-logo"><img src="./images/logo.png" /></div>
-        <p class="footer-text">
+        <p class="footer-text" >
           Where beauty meets care—discover your signature glow with our
           exquisite range of perfumes, skincare, hair, and body essentials!
           Transform every moment into a self-care ritual with products crafted
@@ -227,28 +218,10 @@
       </div>
     </div>
   </footer>
-  <script>
-    // Select elements
-    const card0 = document.querySelector('.card0');
-    const card1 = document.querySelector('.card1');
-    const replacementText = document.querySelector('.replacement-text');
 
-    // Add hover event listener to card0
-    card0.addEventListener('mouseover', () => {
-      // Hide card1
-      card1.classList.add('hidden');
-      // Show replacement text
-      replacementText.style.display = 'block';
-    });
+  
 
-    card0.addEventListener('mouseout', () => {
-      // Show card1
-      card1.classList.remove('hidden');
-      // Hide replacement text
-      replacementText.style.display = 'none';
-    });
-  </script>
-
+  <script type="module" src="signchecked.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();

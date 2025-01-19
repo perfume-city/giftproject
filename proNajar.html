@@ -18,6 +18,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -25,7 +29,7 @@
       <div class="nav-container">
         <!-- Logo (Top Section) -->
         <div class="logo-container">
-          <a href="#">
+          <a href="index.html">
             <img src="./images/logo.png" alt="Logo" class="logo-image" />
           </a>
         </div>
@@ -37,10 +41,11 @@
             <li><a href="#">Face</a></li>
             <li><a href="#">Body</a></li>
             <li><a href="#">Hair</a></li>
-            <li><a href="#">Women Perfume</a></li>
-            <li><a href="#">Men Perfume</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Contact us</a></li>
+            <li><a href="PerfumeW.html">Women Perfume</a></li>
+            <li><a href="perfumeM.html">Men Perfume</a></li>
+            <li><a href="proNajar.html">Gift Box</a></li>
+            <li><a href="aboutus.html">About us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
           </ul>
           <!-- Search Bar -->
           <div class="search-bar">
@@ -49,49 +54,54 @@
           </div>
         </div>
 
-        <!-- Icons (Right Section) -->
-        <div class="icons-container">
-          <div class="icon-link profile-icon">
-            <a href="#"><i class="fas fa-user"></i></a>
-            <span>Sign In</span>
-          </div>
-          <div class="icon-link wishlist-icon">
-            <a href="#"><i class="fas fa-heart"></i></a>
-            <span>Wishlist</span>
+           <!-- Icons (Right Section) -->
+           <div class="icons-container">
+            <div class="icon-link profile-icon" id="profileIcon">
+              <a href="#"><i class="fas fa-user"></i></a>
+              <span id="profileName">Sign In</span>
+            </div>
+            <!-- Logout Button (Initially hidden) -->
+            <div class="icon-link" id="logoutButton" style="display: none">
+              <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><Span> Log Out</Span></a>
+            </div>
+            <div class="icon-link wishlist-icon">
+              <a href="#"><i class="fas fa-heart"></i></a>
+              <span>Wishlist</span>
+            </div>
           </div>
         </div>
       </div>
     </nav>
 
-    <h2>
+    <h2 data-aos="zoom-in" data-aos-duration="1500">
       Gifts
       <span>Boxes</span>
     </h2>
 
-    <h2>Box 1 <br /></h2>
+    <h2 data-aos="fade-up" data-aos-duration="1000">Box 1 <br /></h2>
     <div class="group" id="box1">
-      <div class="item" style="--url: url('images/salmon curry.gif')">
+      <div class="item" style="--url: url('images/salmon curry.gif')"   data-aos="flip-right">
         <div class="overlay"></div>
         <div class="menu">
           <label>Salmon Curry</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/fish sandwich.gif')">
+      <div class="item" style="--url: url('images/fish sandwich.gif')" data-aos="flip-left">
         <div class="overlay"></div>
         <div class="menu">
           <label>Fish Sandwich</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/shakshouka.gif')">
+      <div class="item" style="--url: url('images/shakshouka.gif')" data-aos="zoom-in-up">
         <div class="overlay"></div>
         <div class="menu">
           <label>Shakshouka</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/creme brulee.gif')">
+      <div class="item" style="--url: url('images/creme brulee.gif')"   data-aos="fade-in">
         <div class="overlay"></div>
         <div class="menu">
           <label>Creme brulee</label>
@@ -99,35 +109,35 @@
       </div>
     </div>
 
-    <div class="btnA">
+    <div class="btnA" data-aos="fade-up" data-aos-delay="500">
       <button id="readMoreButtonBox1">Read More</button>
       <button id="readMoreButtonBox1">Checkout</button>
     </div>
 
-    <h2>Box 2 <br /></h2>
+    <h2 data-aos="fade-up" data-aos-duration="1000">Box 2 <br /></h2>
     <div class="group" id="box2">
-      <div class="item" style="--url: url('images/salmon curry.gif')">
+      <div class="item" style="--url: url('images/salmon curry.gif')" data-aos="flip-right">
         <div class="overlay"></div>
         <div class="menu">
           <label>Salmon Curry</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/fish sandwich.gif')">
+      <div class="item" style="--url: url('images/fish sandwich.gif')" data-aos="flip-left">
         <div class="overlay"></div>
         <div class="menu">
           <label>Fish Sandwich</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/shakshouka.gif')">
+      <div class="item" style="--url: url('images/shakshouka.gif')" data-aos="zoom-in-up">
         <div class="overlay"></div>
         <div class="menu">
           <label>Shakshouka</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/creme brulee.gif')">
+      <div class="item" style="--url: url('images/creme brulee.gif')" data-aos="fade-in">
         <div class="overlay"></div>
         <div class="menu">
           <label>Creme brulee</label>
@@ -135,35 +145,35 @@
       </div>
     </div>
 
-    <div class="btnA">
+    <div class="btnA" data-aos="fade-up" data-aos-delay="500">
       <button id="readMoreButtonBox2">Read More</button>
       <button id="readMoreButtonBox2">Checkout</button>
     </div>
 
     <h2>Box 3 <br /></h2>
     <div class="group" id="box3">
-      <div class="item" style="--url: url('images/salmon curry.gif')">
+      <div class="item" style="--url: url('images/salmon curry.gif')" data-aos="flip-right">
         <div class="overlay"></div>
         <div class="menu">
           <label>Salmon Curry</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/fish sandwich.gif')">
+      <div class="item" style="--url: url('images/fish sandwich.gif')" data-aos="flip-left">
         <div class="overlay"></div>
         <div class="menu">
           <label>Fish Sandwich</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/shakshouka.gif')">
+      <div class="item" style="--url: url('images/shakshouka.gif')" data-aos="zoom-in-up">
         <div class="overlay"></div>
         <div class="menu">
           <label>Shakshouka</label>
         </div>
       </div>
 
-      <div class="item" style="--url: url('images/creme brulee.gif')">
+      <div class="item" style="--url: url('images/creme brulee.gif')" data-aos="fade-in">
         <div class="overlay"></div>
         <div class="menu">
           <label>Creme brulee</label>
@@ -171,7 +181,7 @@
       </div>
     </div>
 
-    <div class="btnA">
+    <div class="btnA" data-aos="fade-up" data-aos-delay="500">
       <button id="readMoreButtonBox3">Read More</button>
       <button id="readMoreButtonBox3">Checkout</button>
     </div>
@@ -208,13 +218,13 @@
           <div class="quick-menu">
             <h3 class="footer-title">Quick Menu</h3>
             <ul class="footer-menu">
-              <li><a href="#">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="#">Face</a></li>
               <li><a href="#">Body</a></li>
               <li><a href="#">Hair</a></li>
-              <li><a href="#">Men Perfumes</a></li>
-              <li><a href="#">Women Perfumes</a></li>
-              <li><a href="#">About Us</a></li>
+              <li><a href="perfumeM.html">Men Perfumes</a></li>
+              <li><a href="PerfumeW.html">Women Perfumes</a></li>
+              <li><a href="aboutus.html">About Us</a></li>
             </ul>
           </div>
         </div>
@@ -356,5 +366,11 @@
           });
       });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
+  <script type="module" src="signchecked.js"></script>
+
   </body>
 </html>
