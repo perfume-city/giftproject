@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #ffffff;
+    background-color: #fff;
     color: #333;
   }
   
@@ -199,7 +199,7 @@ body {
     position: relative;
     height: 379px;
     width: 300px;
-    background: #808080;
+    background: #fff;
     margin: 30px;
     border-radius: 20px;
     transition: .8s ease;
@@ -256,7 +256,7 @@ body {
   }
   
   .container {
-    background-color: #ffffff;
+    background-color: #fff;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
@@ -264,7 +264,7 @@ body {
   }
   
   .hero-section {
-    background-color: #ffffff;
+    background-color: #fff;
     text-align: center;
     padding: 60px 20px;
   }
@@ -494,7 +494,7 @@ body {
 }
 
 .brand-name {
-    color: #fd7e14;
+    color: #ab8e66;
 }
 /* Small Screens (Phones, up to 576px) */
 @media (max-width: 576px) {
@@ -541,3 +541,4 @@ body {
         margin-right: 0;
     }
 }
+

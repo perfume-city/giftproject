@@ -166,6 +166,7 @@
 
 .footer-section {
     flex: 1 1 30%;
+    margin-left: 1.5rem;
 }
 
 .footer-logo img {
@@ -263,6 +264,9 @@
 .footer-links a:hover {
     color: #343a40;
 }
+.brand-name {
+    color: #AB8E66;
+}
 
 /****end style for footer***/
 .image-container {
@@ -292,14 +296,17 @@ section {
     padding: 100px 100px;
 }
 
-.content {
+.content , .product-container {
     display: flex;
     align-self: center;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
 }
-
+.product-container p {
+    text-align: center;
+    margin: 0.3rem;
+}
 /*CARD PRODUCT*/
 .productCard {
     background-color: #fff;
@@ -543,7 +550,10 @@ section {
 .view-reviews {
     margin-top: 40px;
 }
-
+.star-rating-display {
+    color: #B99765;
+    font-size: 1.5em;
+}
 /* .view-reviews h2 {
     font-size: 18px;
     margin-bottom: 10px;

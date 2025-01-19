@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="whichlist.css">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+      <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo (Top Section) -->
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="./images/logo.png" alt="Logo" class="logo-image" />
+        </a>
+      </div>
+
+      <!-- Categories and Search Bar (Middle Section) -->
+      <div class="categories-search-container">
+        <ul class="categories">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="natural.html">Natural</a></li>
+          <li><a href="bodyCare.html">Body</a></li>
+          <li><a href="hairCare.html">Hair</a></li>
+          <li><a href="PerfumeW.html">Women Perfume</a></li>
+          <li><a href="perfumeM.html">Men Perfume</a></li>
+          <li><a href="proNajar.html">Gift Box</a></li>
+          <li><a href="aboutus.html">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+
+      <!-- Icons (Right Section) -->
+      <div class="icons-container">
+        <div class="icon-link profile-icon" id="profileIcon">
+          <a href="#"><i class="fas fa-user"></i></a>
+          <span id="profileName">Sign In</span>
+        </div>
+        <!-- Logout Button (Initially hidden) -->
+        <div class="icon-link" id="logoutButton" style="display: none">
+          <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><Span> Log Out</Span></a>
+        </div>
+        <div class="icon-link wishlist-icon">
+          <a href="wichlist.html"><i class="fas fa-heart"></i></a>
+          <span>Wishlist</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+	 <!-- Footer -->
+     <footer class="footer">
+        <div class="footer-container">
+          <!-- Section 1: Brand Description -->
+          <div class="footer-section">
+            <div class="footer-logo"><img src="./images/logo.png" /></div>
+            <p class="footer-text">
+              Where beauty meets care—discover your signature glow with our
+              exquisite range of perfumes, skincare, hair, and body essentials!
+              Transform every moment into a self-care ritual with products crafted
+              to inspire confidence and radiance.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+    
+          <!-- Section 2: Quick Menu -->
+          <div class="footer-section">
+            <div class="quick-menu">
+              <h3 class="footer-title">Quick Menu</h3>
+              <ul class="footer-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="natural.html">Natural</a></li>
+                <li><a href="bodyCare.html">Body</a></li>
+                <li><a href="hairCare.html">Hair</a></li>
+                <li><a href="perfumeM.html">Men Perfumes</a></li>
+                <li><a href="PerfumeW.html">Women Perfumes</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+              </ul>
+            </div>
+          </div>
+    
+          <!-- Section 3: Contact Info -->
+          <div class="footer-section">
+            <h3 class="footer-title">Contact Us</h3>
+            <ul class="footer-contact">
+              <li><i class="fas fa-envelope"></i> LUMIERE@gmail.com</li>
+              <li><i class="fas fa-phone"></i> +962 00000000</li>
+              <li><i class="fas fa-map-marker-alt"></i> Amman, Abdoun</li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="footer-bottom">
+          <p>
+            Copyright © 2025 <span class="brand-name">LUMIERE</span>. All rights
+            reserved
+          </p>
+          <div class="footer-links">
+            <a href="#">Terms of Use</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </footer>
+    
+      <script src="https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+      <!-- Bootstrap Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    
+      <script type="module" src="signchecked.js"></script>
+</body>
+</html>
