@@ -12,14 +12,14 @@ import {
   firestore,
   database,
 } from "./firebaseConfig.js";
+                                                            
+const signUpForm = document.getElementById("sign-up-form");                        
+const registrationMessage = document.getElementById("registrationMessage");             
 
-const signUpForm = document.getElementById("sign-up-form");
-const registrationMessage = document.getElementById("registrationMessage");
-
-signUpForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(signUpForm);
+signUpForm.addEventListener("submit", async (e) => {             
+  e.preventDefault();                             
+                                                    
+  const formData = new FormData(signUpForm);                                                                                                               
   const username = formData.get("username");
   const email = formData.get("email");
   const password = formData.get("password");
