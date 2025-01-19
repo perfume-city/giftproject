@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import { getDatabase, ref, get, child, push } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
 // إعدادات Firebase
 const firebaseConfig = {
@@ -16,6 +16,30 @@ const firebaseConfig = {
 // تهيئة Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
+// دالة لإضافة منتج إلى المفضلة باستخدام معرف فريد
+function addToFavorites(product) {
+  const favoritesRef = ref(db, "favorites");
+  push(favoritesRef, {
+    id: product.id, // يمكن تخزين معرف المنتج هنا للتعرف عليه لاحقًا
+    name: product.name,
+    image: product.image,
+    price: product.price,
+    details: product.details,
+  })
+    .then(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Product added to wishlist',
+        confirmButtonText: 'OK'
+      });
+    })
+    .catch((error) => {
+      console.error("Error adding to favorites:", error);
+      alert("Failed to add product to favorites.");
+    });
+}
 
 // الدالة لجلب البيانات وعرضها على DOM
 async function getPerfumeMenItems() {
@@ -51,12 +75,35 @@ async function getPerfumeMenItems() {
             </strong>
             <p class="price">${bodyCare.price}.00JD</p>
             <a href="detailsBody.html?id=${key}" class="more-details">Read More</a>
+            <span>
+                <button class="add-to-favorites" 
+                    data-id="${key}" 
+                    data-name="${bodyCare.nameProduct}" 
+                    data-image="${bodyCare.image}" 
+                    data-price="${bodyCare.price}" 
+                    data-details="${bodyCare.detailsProduct}">
+                    <span><i class="fa-solid fa-heart" style="color: #ed4040;"></i></span>
+                </button>
+            </span>
         `;
+
+        // إضافة حدث النقر للزر "Add to Favorites"
+        productCard.querySelector(".add-to-favorites").addEventListener("click", (e) => {
+          const button = e.currentTarget; // استخدم e.currentTarget بدلاً من e.target
+          const product = {
+            id: button.getAttribute("data-id"),
+            name: button.getAttribute("data-name"),
+            image: button.getAttribute("data-image"),
+            price: button.getAttribute("data-price"),
+            details: button.getAttribute("data-details"),
+          };
+          addToFavorites(product);
+        });
 
         productContainer.appendChild(productCard);
       });
     } else {
-      console.log("No data available in perfumeMen");
+      console.log("No data available in bodyCare");
     }
   } catch (error) {
     console.error("Error fetching data:", error);

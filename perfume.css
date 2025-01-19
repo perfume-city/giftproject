@@ -588,3 +588,11 @@ section {
     color: #666;
     margin-top: 5px;
 }
+
+/*************style for button favarite*******/
+.add-to-favorites{
+    border: none;
+    background: none;
+    display: inline;
+
+}
