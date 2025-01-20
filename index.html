@@ -12,7 +12,7 @@
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="homePage.css" />
-</head>
+ </head>
 
 <body>
   <!-- Sticky Navbar -->
@@ -29,9 +29,9 @@
       <div class="categories-search-container">
         <ul class="categories">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Face</a></li>
-          <li><a href="#">Body</a></li>
-          <li><a href="#">Hair</a></li>
+          <li><a href="natural.html">Natural</a></li>
+          <li><a href="bodyCare.html">Body</a></li>
+          <li><a href="hairCare.html">Hair</a></li>
           <li><a href="PerfumeW.html">Women Perfume</a></li>
           <li><a href="perfumeM.html">Men Perfume</a></li>
           <li><a href="proNajar.html">Gift Box</a></li>
@@ -40,8 +40,10 @@
         </ul>
         <!-- Search Bar -->
         <div class="search-bar">
-          <input type="text" placeholder="Search..." />
-          <button><i class="fas fa-search"></i></button>
+          <form class="searchBox" id="searchForm" action="searchresult.html" method="GET">
+            <input type="text" id="searchInput" name="query" placeholder="Search products..." required />
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
         </div>
       </div>
 
@@ -56,7 +58,7 @@
           <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><Span> Log Out</Span></a>
         </div>
         <div class="icon-link wishlist-icon">
-          <a href="#"><i class="fas fa-heart"></i></a>
+          <a href="wichlist.html"><i class="fas fa-heart"></i></a>
           <span>Wishlist</span>
         </div>
       </div>
@@ -72,36 +74,60 @@
         aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
         aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+        aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+        aria-label="Slide 5"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="./images/sand.jpg" class="d-block w-100" alt="..." />
+        <img src="./images/perfW.jpg" class="d-block w-100" alt="..." />
         <div class="carousel-caption d-none d-md-block styled-caption">
           <p class="small-text">SALE UP TO 40% OFF!</p>
           <h2>Limited Time.<br />Be Quick!</h2>
-          <button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
-            Shop Now
-          </button>
+          <a href="PerfumeW.html"><button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
+              Shop Now
+            </button></a>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="./images/sand.jpg" class="d-block w-100" alt="..." />
+        <img src="./images/perfM.jpg" class="d-block w-100" alt="..." />
         <div class="carousel-caption d-none d-md-block styled-caption">
-          <p class="small-text">SALE UP TO 40% OFF!</p>
-          <h2>Limited Time.<br />Be Quick!</h2>
-          <button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
-            Shop Now
-          </button>
+          <p class="small-text">Hurry, Only a Few Left!</p>
+          <h2>Grab Your Favorites.<br />Save Big!</h2>
+          <a href="perfumeM.html"><button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
+              Shop Now
+            </button></a>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="./images/sand.jpg" class="d-block w-100" alt="..." />
+        <img src="./images/hairr.jpg" class="d-block w-100" alt="..." />
         <div class="carousel-caption d-none d-md-block styled-caption">
-          <p class="small-text">SALE UP TO 40% OFF!</p>
-          <h2>Limited Time.<br />Be Quick!</h2>
-          <button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
-            Shop Now
-          </button>
+          <p class="small-text">Limited Stock Available!</p>
+          <h2>Massive Discounts.<br />Act Fast!</h2>
+          <a href="hairCare.html"><button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
+              Shop Now
+            </button></a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="./images/bodyp.jpg" class="d-block w-100" alt="..." />
+        <div class="carousel-caption d-none d-md-block styled-caption">
+          <p class="small-text">Exclusive Deals Inside!</p>
+          <h2>Shop Now.<br />Don't Miss Out!</h2>
+          <a href="bodyCare.html"><button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
+              Shop Now
+            </button></a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="./images/Natural.jpg" class="d-block w-100" alt="..." />
+        <div class="carousel-caption d-none d-md-block styled-caption">
+          <p class="small-text">Up to 50% OFF!</p>
+          <h2>Your Dream Deals.<br />Shop Today!</h2>
+          <a href="natural.html"><button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
+              Shop Now
+            </button></a>
         </div>
       </div>
     </div>
@@ -123,7 +149,7 @@
         <p class="main">
           Return used bottles and get 10% off your next purchase
         </p>
-        <button>Read More</button>
+        <a href="proMarya.html"><button>Read More</button></a>
       </div>
       <div class="image">
         <img src="./images/perfume.png" alt="product-image" />
@@ -135,7 +161,7 @@
         <p class="main">
           Stay Hydrated And Glowing With Our Winter Must-Haves
         </p>
-        <button>Shop Now</button>
+        <a href="natural.html"><button>Shop Now</button></a>
       </div>
       <div class="image">
         <img src="./images/face.png" alt="product-image" />
@@ -150,7 +176,7 @@
       <div class="content">
         <div class="productCard">
           <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
+            <img src="./image/giorgio armani.jpeg" alt="Giorgio Armani Code Parfum" />
           </div>
           <div class="project-info">
             <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
@@ -159,97 +185,66 @@
             </p>
             <strong class="project-title">
               <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
+              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
             </strong>
           </div>
         </div>
         <div class="productCard">
           <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
+            <img src="./image/me purple.jpeg" alt="Giorgio Armani Code Parfum" />
           </div>
           <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
+            <p class="nameProduct">Colour Me Purple 100ML</p>
             <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
-            </p>
+              Timeless, floral, and sophisticated elegance            </p>
             <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
+              <p class="price">16.00JD</p>
+              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
             </strong>
           </div>
         </div>
         <div class="productCard">
           <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
+            <img src="https://s.alicdn.com/@sc04/kf/Hc0dd94f3216f433b883c06173ef5af11c.jpg_720x720q50.jpg" alt="Giorgio Armani Code Parfum" />
           </div>
           <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
+            <p class="nameProduct">Cheap Customize Rosemary</p>
             <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
+              Cheap Customize Rosemary Bio hair care shampoo hair growth
             </p>
             <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
+              <p class="price">35.00JD</p>
+              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
             </strong>
           </div>
         </div>
         <div class="productCard">
           <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
+            <img src="./image/21663a3f5043ab26088b5ee6cb7f1d7d.jpg" alt="Giorgio Armani Code Parfum" />
           </div>
           <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
+            <p class="nameProduct">Smoother Frizz Control Styling Hair Cream 100ml</p>
             <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
+              smooths, conditions and strengthens without adding hold or excess weight.
             </p>
             <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
+              <p class="price">12.00JD</p>
+              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
             </strong>
           </div>
         </div>
         <div class="productCard">
           <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
+            <img src="https://s.alicdn.com/@sc04/kf/Hdf3bd8f0a9d949f9885aee43ce26c16d1.jpg_720x720q50.jpg" alt="Giorgio Armani Code Parfum" />
           </div>
           <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
+            <p class="nameProduct">Body Mud Mask</p>
             <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
+              Cleanses,controls excess oils and calms your skin
             </p>
             <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
-            </strong>
-          </div>
-        </div>
-        <div class="productCard">
-          <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
-          </div>
-          <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
-            <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
-            </p>
-            <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
-            </strong>
-          </div>
-        </div>
-        <div class="productCard">
-          <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
-          </div>
-          <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
-            <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
-            </p>
-            <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
+              <p class="price">5.00JD</p>
+              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
             </strong>
           </div>
         </div>
@@ -287,23 +282,23 @@
   <!-- Catalog -->
   <div class="catalog container">
     <div class="category" onclick="location.href='#face'">
-      <img src="./images/face care.jpg" alt="Face" class="grayscale" />
-      <p>FACE</p>
+      <a href="natural.html"><img src="./images/face care.jpg" alt="Natural" class="grayscale" /></a>
+      <p>Natural</p>
     </div>
     <div class="category" onclick="location.href='#body'">
-      <img src="./images/body.jpg" alt="Body" class="grayscale" />
+      <a href="bodyCare.html"><img src="./images/body.jpg" alt="Body" class="grayscale" /></a>
       <p>BODY</p>
     </div>
     <div class="category" onclick="location.href='#hair'">
-      <img src="./images/hair.jpg" class="grayscale" alt="Hair and Scalp" />
+      <a href="hairCare.html"><img src="./images/hair.jpg" class="grayscale" alt="Hair and Scalp" /></a>
       <p>HAIR</p>
     </div>
     <div class="category" onclick="location.href='#men-perfumes'">
-      <img src="./images/men perfumes.jpg" alt="men-perfumes" class="grayscale" />
+      <a href="perfumeM.html"><img src="./images/men perfumes.jpg" alt="men-perfumes" class="grayscale" /></a>
       <p>MEN PERFUMES</p>
     </div>
     <div class="category" onclick="location.href='#women-perfumes'">
-      <img src="./images/women perfumes.jpg" alt="women-perfumes" class="grayscale" />
+      <a href="PerfumeW.html"><img src="./images/women perfumes.jpg" alt="women-perfumes" class="grayscale" /></a>
       <p>WOMEN PERFUMES</p>
     </div>
   </div>
@@ -357,9 +352,9 @@
           <h3 class="footer-title">Quick Menu</h3>
           <ul class="footer-menu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">Face</a></li>
-            <li><a href="#">Body</a></li>
-            <li><a href="#">Hair</a></li>
+            <li><a href="natural.html">Natural</a></li>
+            <li><a href="bodyCare.html">Body</a></li>
+            <li><a href="hairCare.html">Hair</a></li>
             <li><a href="perfumeM.html">Men Perfumes</a></li>
             <li><a href="PerfumeW.html">Women Perfumes</a></li>
             <li><a href="aboutus.html">About Us</a></li>
@@ -413,8 +408,9 @@
       content.scrollBy({ left: 240, behavior: "smooth" });
     });
   </script>
-
+  <script type="module" src="search.js"></script>
   <script type="module" src="signchecked.js"></script>
+  <!-- <script type="module" src="search.js"></script> -->
 </body>
 
 </html>

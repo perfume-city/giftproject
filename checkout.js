@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import { getDatabase, ref, push, get, remove } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
 // إعدادات Firebase
 const firebaseConfig = {
@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Please fill out all required fields.");
       return;
     }
+    const checkoutRef = ref(database, "checkout");
 
     // Collect form data
     const formData = {
@@ -52,18 +53,68 @@ document.addEventListener("DOMContentLoaded", () => {
       phone: document.getElementById("phone").value.trim(),
       email: document.getElementById("email").value.trim(),
       refillScheme: document.getElementById("refillScheme").value.trim(),
+      paymentMethod: document.getElementById("paymentMethod").value.trim(),
     };
 
     // Store data in Firebase Realtime Database
-    const dbRef = ref(database, "billingDetails"); // التأكد من تعريف `database`
-    push(dbRef, formData)
+   // التأكد من تعريف `database`
+    push(checkoutRef, formData)
       .then(() => {
         alert("Data submitted successfully!");
-        billingForm.reset(); // Clear the form after submission
+        document.getElementById("billingForm").reset(); // Clear the form after submission
       })
       .catch((error) => {
         console.error("Error storing data:", error);
         alert("An error occurred while submitting the data. Please try again.");
       });
+      console.log("Form Data:", formData);
   });
 });
+
+// دالة لجلب بيانات checkout وعرضها في DOM
+// جلب معلومات المنتج وعرضها في DOM
+async function fetchProductDetails() {
+  const productRef = ref(database, "perfumMen/${productId}"); // قم بتحديث "specificProductID" بمعرف المنتج المناسب
+  try {
+    const snapshot = await get(productRef);
+    if (snapshot.exists()) {
+      const product = snapshot.val();
+      const productDetailsContainer = document.getElementById("productDetails");
+
+      // إنشاء عرض المنتج
+      productDetailsContainer.innerHTML = `
+        <h4>Product Details</h4>
+        <img src="${product.imageURL}" alt="${product.name}" class="img-fluid mb-3" />
+        <p><strong>Name:</strong> ${product.name}</p>
+        <p><strong>Price:</strong> $${product.price}</p>
+        <p><strong>Description:</strong> ${product.description}</p>
+      `;
+    } else {
+      console.warn("No product details found.");
+    }
+  } catch (error) {
+    console.error("Error fetching product details:", error);
+  }
+}
+
+// استدعاء دالة جلب المنتج عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", () => {
+  fetchProductDetails();
+});
+
+// دالة لحذف منتج من checkout
+function removeFromCheckout(productId) {
+  const productRef = ref(database, `checkout/${productId}`);
+  remove(productRef)
+    .then(() => {
+      alert("Item removed from checkout.");
+      const rowToRemove = document.querySelector(`button[data-id="${productId}"]`).closest('tr');
+      rowToRemove.remove(); // حذف الصف من الجدول
+    })
+    .catch((error) => {
+      console.error("Error removing item:", error);
+    });
+}
+
+// استدعاء الدالة عند تحميل الصفحة
+getCheckoutItems();
