@@ -12,7 +12,7 @@
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="homePage.css" />
-</head>
+ </head>
 
 <body>
   <!-- Sticky Navbar -->
@@ -40,8 +40,10 @@
         </ul>
         <!-- Search Bar -->
         <div class="search-bar">
-          <input type="text" placeholder="Search..." />
-          <button><i class="fas fa-search"></i></button>
+          <form class="searchBox" id="searchForm" action="searchresult.html" method="GET">
+            <input type="text" id="searchInput" name="query" placeholder="Search products..." required />
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
         </div>
       </div>
 
@@ -84,8 +86,8 @@
           <p class="small-text">SALE UP TO 40% OFF!</p>
           <h2>Limited Time.<br />Be Quick!</h2>
           <a href="PerfumeW.html"><button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
-            Shop Now
-          </button></a>
+              Shop Now
+            </button></a>
         </div>
       </div>
       <div class="carousel-item">
@@ -94,8 +96,8 @@
           <p class="small-text">Hurry, Only a Few Left!</p>
           <h2>Grab Your Favorites.<br />Save Big!</h2>
           <a href="perfumeM.html"><button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
-            Shop Now
-          </button></a>
+              Shop Now
+            </button></a>
         </div>
       </div>
       <div class="carousel-item">
@@ -104,8 +106,8 @@
           <p class="small-text">Limited Stock Available!</p>
           <h2>Massive Discounts.<br />Act Fast!</h2>
           <a href="hairCare.html"><button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
-            Shop Now
-          </button></a>
+              Shop Now
+            </button></a>
         </div>
       </div>
       <div class="carousel-item">
@@ -114,8 +116,8 @@
           <p class="small-text">Exclusive Deals Inside!</p>
           <h2>Shop Now.<br />Don't Miss Out!</h2>
           <a href="bodyCare.html"><button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
-            Shop Now
-          </button></a>
+              Shop Now
+            </button></a>
         </div>
       </div>
       <div class="carousel-item">
@@ -124,8 +126,8 @@
           <p class="small-text">Up to 50% OFF!</p>
           <h2>Your Dream Deals.<br />Shop Today!</h2>
           <a href="natural.html"><button class="btn btn-outline-dark fw-bold text-uppercase px-4 py-2">
-            Shop Now
-          </button></a>
+              Shop Now
+            </button></a>
         </div>
       </div>
     </div>
@@ -174,7 +176,7 @@
       <div class="content">
         <div class="productCard">
           <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
+            <img src="./image/giorgio armani.jpeg" alt="Giorgio Armani Code Parfum" />
           </div>
           <div class="project-info">
             <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
@@ -183,97 +185,66 @@
             </p>
             <strong class="project-title">
               <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
+              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
             </strong>
           </div>
         </div>
         <div class="productCard">
           <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
+            <img src="./image/me purple.jpeg" alt="Giorgio Armani Code Parfum" />
           </div>
           <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
+            <p class="nameProduct">Colour Me Purple 100ML</p>
             <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
-            </p>
+              Timeless, floral, and sophisticated elegance            </p>
             <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
+              <p class="price">16.00JD</p>
+              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
             </strong>
           </div>
         </div>
         <div class="productCard">
           <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
+            <img src="https://s.alicdn.com/@sc04/kf/Hc0dd94f3216f433b883c06173ef5af11c.jpg_720x720q50.jpg" alt="Giorgio Armani Code Parfum" />
           </div>
           <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
+            <p class="nameProduct">Cheap Customize Rosemary</p>
             <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
+              Cheap Customize Rosemary Bio hair care shampoo hair growth
             </p>
             <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
+              <p class="price">35.00JD</p>
+              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
             </strong>
           </div>
         </div>
         <div class="productCard">
           <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
+            <img src="./image/21663a3f5043ab26088b5ee6cb7f1d7d.jpg" alt="Giorgio Armani Code Parfum" />
           </div>
           <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
+            <p class="nameProduct">Smoother Frizz Control Styling Hair Cream 100ml</p>
             <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
+              smooths, conditions and strengthens without adding hold or excess weight.
             </p>
             <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
+              <p class="price">12.00JD</p>
+              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
             </strong>
           </div>
         </div>
         <div class="productCard">
           <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
+            <img src="https://s.alicdn.com/@sc04/kf/Hdf3bd8f0a9d949f9885aee43ce26c16d1.jpg_720x720q50.jpg" alt="Giorgio Armani Code Parfum" />
           </div>
           <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
+            <p class="nameProduct">Body Mud Mask</p>
             <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
+              Cleanses,controls excess oils and calms your skin
             </p>
             <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
-            </strong>
-          </div>
-        </div>
-        <div class="productCard">
-          <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
-          </div>
-          <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
-            <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
-            </p>
-            <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
-            </strong>
-          </div>
-        </div>
-        <div class="productCard">
-          <div class="product-image">
-            <img src="./images/png2.png" alt="Giorgio Armani Code Parfum" />
-          </div>
-          <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
-            <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
-            </p>
-            <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <a href="detailsPerfume.html" class="more-details">Read More</a>
+              <p class="price">5.00JD</p>
+              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
             </strong>
           </div>
         </div>
@@ -437,8 +408,9 @@
       content.scrollBy({ left: 240, behavior: "smooth" });
     });
   </script>
-
+  <script type="module" src="search.js"></script>
   <script type="module" src="signchecked.js"></script>
+  <!-- <script type="module" src="search.js"></script> -->
 </body>
 
 </html>

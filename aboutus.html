@@ -37,8 +37,10 @@
         </ul>
         <!-- Search Bar -->
         <div class="search-bar">
-          <input type="text" placeholder="Search..." />
-          <button><i class="fas fa-search"></i></button>
+          <form class="searchBox" id="searchForm" action="searchresult.html" method="GET">
+            <input type="text" id="searchInput" name="query" placeholder="Search products..." required />
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
         </div>
       </div>
 
@@ -227,5 +229,6 @@
     AOS.init();
   </script>
   <script src="aboutus.js"></script>
+  <script src="search.js" type="module"></script>
 </body>
 </html>

@@ -40,26 +40,28 @@
         </ul>
         <!-- Search Bar -->
         <div class="search-bar">
-          <input type="text" placeholder="Search..." />
-          <button><i class="fas fa-search"></i></button>
+          <form class="searchBox" id="searchForm" action="searchresult.html" method="GET">
+            <input type="text" id="searchInput" name="query" placeholder="Search products..." required />
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
         </div>
       </div>
 
       <!-- Icons (Right Section) -->
       <div class="icons-container">
         <div class="icon-link profile-icon" id="profileIcon">
-            <a href="#"><i class="fas fa-user"></i></a>
-            <span id="profileName">Sign In</span>
+          <a href="#"><i class="fas fa-user"></i></a>
+          <span id="profileName">Sign In</span>
         </div>
         <!-- Logout Button (Initially hidden) -->
         <div class="icon-link" id="logoutButton" style="display: none">
-            <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><Span> Log Out</Span></a>
+          <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><Span> Log Out</Span></a>
         </div>
         <div class="icon-link wishlist-icon">
-            <a href="wichlist.html"><i class="fas fa-heart"></i></a>
-            <span>Wishlist</span>
+          <a href="wichlist.html"><i class="fas fa-heart"></i></a>
+          <span>Wishlist</span>
         </div>
-    </div>
+      </div>
     </div>
     </div>
   </nav>
@@ -166,7 +168,6 @@
             <li><a href="hairCare.html">Hair</a></li>
             <li><a href="perfumeM.html">Men Perfumes</a></li>
             <li><a href="PerfumeW.html">Women Perfumes</a></li>
-            <li><a href="proNajar.html">Gift Box</a></li>
             <li><a href="aboutus.html">About Us</a></li>
           </ul>
         </div>
@@ -201,6 +202,8 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
     <script type="module" src="signchecked.js"></script>
+    <script type="module" src="search.js"></script>
+
 </body>
 
 </html>

@@ -49,10 +49,12 @@
             <li><a href="contact.html">Contact us</a></li>
           </ul>
           <!-- Search Bar -->
-          <div class="search-bar">
-            <input type="text" placeholder="Search..." />
-            <button><i class="fas fa-search"></i></button>
-          </div>
+        <div class="search-bar">
+          <form class="searchBox" id="searchForm" action="searchresult.html" method="GET">
+            <input type="text" id="searchInput" name="query" placeholder="Search products..." required />
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
         </div>
 
         <!-- Icons (Right Section) -->
@@ -379,5 +381,6 @@
       AOS.init();
     </script>
     <script type="module" src="signchecked.js"></script>
+    <script type="module" src="search.js"></script>
   </body>
 </html>

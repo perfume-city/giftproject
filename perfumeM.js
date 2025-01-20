@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import { getDatabase, ref, get, child, push } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
 // إعدادات Firebase
 const firebaseConfig = {
@@ -16,6 +16,29 @@ const firebaseConfig = {
 // تهيئة Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
+// دالة لإضافة منتج إلى المفضلة
+function addToFavorites(product) {
+  const favoritesRef = ref(db, "favorites");
+  push(favoritesRef, {
+    name: product.name,
+    image: product.image,
+    price: product.price,
+    details: product.details
+  })
+    .then(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Product added to wishlist',
+        confirmButtonText: 'OK'
+      });
+    })
+    .catch((error) => {
+      console.error("Error adding to favorites:", error);
+      alert("Failed to add product to favorites.");
+    });
+}
 
 // الدالة لجلب البيانات وعرضها على DOM
 async function getPerfumeMenItems() {
@@ -51,7 +74,28 @@ async function getPerfumeMenItems() {
             </strong>
             <p class="price">${perfume.price}.00JD</p>
             <a href="detailsMen.html?id=${key}" class="more-details">Read More</a>
+           <span> <button class="add-to-favorites" 
+                data-id="${key}" 
+                data-name="${perfume.nameProduct}" 
+                data-image="${perfume.image}" 
+                data-price="${perfume.price}" 
+                data-details="${perfume.detailsProduct}">
+                <span><i class="fa-solid fa-heart" style="color: #ed4040;"></i></span>
+            </button></span>
         `;
+
+        // إضافة حدث النقر للزر "Add to Favorites"
+        productCard.querySelector(".add-to-favorites").addEventListener("click", (e) => {
+          const button = e.currentTarget; // استخدم e.currentTarget بدلاً من e.target
+          const product = {
+            id: button.getAttribute("data-id"),
+            name: button.getAttribute("data-name"),
+            image: button.getAttribute("data-image"),
+            price: button.getAttribute("data-price"),
+            details: button.getAttribute("data-details"),
+          };
+          addToFavorites(product);
+        });
 
         productContainer.appendChild(productCard);
       });
@@ -62,15 +106,6 @@ async function getPerfumeMenItems() {
     console.error("Error fetching data:", error);
   }
 }
-// function storeProductDetails(productKey) {
-//   const dbRef = firebase.database().ref();
-//   dbRef.child(`perfumMen/${productKey}`).get().then((snapshot) => {
-//     if (snapshot.exists()) {
-//       localStorage.setItem("selectedProduct", JSON.stringify(snapshot.val()));
-//     } else {
-//       console.log("No product data available.");
-//     }
-//   }).catch((error) => console.error("Error fetching product:", error));
-// }
+
 // استدعاء الدالة
 getPerfumeMenItems();

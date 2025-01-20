@@ -166,7 +166,6 @@
 
 .footer-section {
     flex: 1 1 30%;
-    margin-left: 1.5rem;
 }
 
 .footer-logo img {
@@ -263,9 +262,6 @@
 
 .footer-links a:hover {
     color: #343a40;
-}
-.brand-name {
-    color: #AB8E66;
 }
 
 /****end style for footer***/
@@ -591,4 +587,12 @@ section {
     font-size: 12px;
     color: #666;
     margin-top: 5px;
+}
+
+/*************style for button favarite*******/
+.add-to-favorites{
+    border: none;
+    background: none;
+    display: inline;
+
 }

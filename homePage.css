@@ -84,7 +84,13 @@
     flex: 1;
     font-size: 1rem;
 }
-
+.search-bar .searchBox{
+display: flex;
+   
+}
+.search-bar .searchBox button{
+    justify-self: end;
+}
 .search-bar button {
     border: none;
     outline: none;
@@ -149,7 +155,7 @@
 .styled-caption {
     position: absolute;
     top: 50%;
-    right: 70%;
+    right: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff; 
@@ -608,7 +614,6 @@ section {
 
 .footer-section {
     flex: 1 1 30%;
-    margin-left: 1.5rem;
 }
 
 .footer-logo img {
@@ -708,7 +713,7 @@ section {
 }
 
 .brand-name {
-    color: #AB8E66;
+    color: #fd7e14;
 }
 /* Small Screens (Phones, up to 576px) */
 @media (max-width: 576px) {

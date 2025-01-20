@@ -1,3 +1,5 @@
+import { database, ref, set } from "./firebaseConfig.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
   const isNewUser = localStorage.getItem("isNewUser");
@@ -9,24 +11,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show a welcome message if the user is new
     if (isNewUser === "true") {
       Swal.fire({
-        title: `Welcome, ${userData.username}!`,
+        title: `Welcome, ${userData.username || "User"}!`,
         text: "We're glad to have you here.",
         icon: "success",
         confirmButtonText: "Let's Get Started",
       }).then(() => {
-        // Clear the isNewUser flag so the message doesn't appear again
         localStorage.setItem("isNewUser", "false");
       });
     }
 
-    // User is logged in, display username and show logout button
+    // Display username and logout button
     profileName.textContent = userData.username || "User";
     profileIcon.addEventListener("click", () => {
-      window.location.href = "./profileuser.html"; // Redirect to the user's profile page (optional)
+      window.location.href = "./profileuser.html";
     });
 
-    // Show logout button
     logoutButton.style.display = "inline-block";
+
 
     // Logout functionality
     const logoutBtn = document.getElementById("logoutBtn");
@@ -43,11 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("email").value = userData.email || "";
     document.getElementById("phone").value = userData.phoneNumber || "";
 
-
     // Save Changes (Edit Profile)
     const saveButton = document.getElementById("save");
-    saveButton.addEventListener("click", () => {
-      const newHeaderName = document.getElementById("header-name").innerHTML.trim();
+    saveButton.addEventListener("click", async () => {
       const newFullName = document.getElementById("editFullName").value.trim();
       const newPhone = document.getElementById("editPhone").value.trim();
 
@@ -69,30 +68,52 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Update user data
+      if (!userData.uid) {
+        Swal.fire({
+          title: "Error",
+          text: "User ID is missing. Please log in again.",
+          icon: "error",
+        });
+        return;
+      }
+
+      // Update user data in localStorage and database
       userData.username = newFullName;
       userData.phoneNumber = newPhone;
-      // Save updated user data locally
       localStorage.setItem("userData", JSON.stringify(userData));
 
-      Swal.fire({
-        title: "Profile Updated",
-        text: "Your changes have been saved successfully.",
-        icon: "success",
-      }).then(() => {
-        // Update form fields
-        document.getElementById("fullName").value = userData.username;
-        document.getElementById("phone").value = userData.phoneNumber;
-        document.getElementById("editFullName").value = "";
-        document.getElementById("editPhone").value = "";
-        document.getElementById("header-name").innerHTML = userData.username;
-        profileName.textContent = userData.username;
-      });
+      const userRef = ref(database, `users/${userData.uid}`);
+      try {
+        await set(userRef, {
+          username: newFullName,
+          phoneNumber: newPhone,
+          email: userData.email, // Maintain email as it is
+        });
+        Swal.fire({
+          title: "Profile Updated",
+          text: "Your changes have been saved successfully.",
+          icon: "success",
+        }).then(() => {
+          document.getElementById("fullName").value = userData.username;
+          document.getElementById("phone").value = userData.phoneNumber;
+          document.getElementById("editFullName").value = "";
+          document.getElementById("editPhone").value = "";
+          document.getElementById("header-name").innerHTML = userData.username;
+          profileName.textContent = userData.username;
+        });
+      } catch (error) {
+        Swal.fire({
+          title: "Error",
+          text: "Failed to update profile. Please try again later.",
+          icon: "error",
+        });
+        console.error("Update Error:", error);
+      }
     });
 
     // Delete Profile
     const deleteButton = document.querySelector(".btn-danger");
-    deleteButton.addEventListener("click", () => {
+    deleteButton.addEventListener("click", async () => {
       Swal.fire({
         title: "Are you sure?",
         text: "This action will delete your profile and cannot be undone.",
@@ -100,30 +121,38 @@ document.addEventListener("DOMContentLoaded", () => {
         showCancelButton: true,
         confirmButtonText: "Yes, delete it!",
         cancelButtonText: "Cancel",
-      }).then((result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
-          // Clear user data
-          localStorage.removeItem("userData");
-          localStorage.removeItem("isNewUser");
+          const userRef = ref(database, `users/${userData.uid}`);
+          try {
+            await set(userRef, null);
+            localStorage.removeItem("userData");
+            localStorage.removeItem("isNewUser");
 
-          Swal.fire({
-            title: "Profile Deleted",
-            text: "Your profile has been deleted successfully.",
-            icon: "success",
-          }).then(() => {
-            window.location.href = "./signinup.html"; // Redirect to login page
-          });
+            Swal.fire({
+              title: "Profile Deleted",
+              text: "Your profile has been deleted successfully.",
+              icon: "success",
+            }).then(() => {
+              window.location.href = "./signinup.html";
+            });
+          } catch (error) {
+            Swal.fire({
+              title: "Error",
+              text: "Failed to delete profile. Please try again later.",
+              icon: "error",
+            });
+            console.error("Delete Error:", error);
+          }
         }
       });
     });
   } else {
-    // User is not logged in
     profileName.textContent = "Sign In";
     profileIcon.addEventListener("click", () => {
-      window.location.href = "./signinup.html"; // Redirect to login page
+      window.location.href = "./signinup.html";
     });
 
-    // Hide logout button
     logoutButton.style.display = "none";
   }
 });

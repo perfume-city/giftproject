@@ -81,7 +81,7 @@ async function getPerfumeMenItems() {
   
           productCard.innerHTML = `
               <div class="product-image">
-                  <img src="image/${product.image}" alt="${product.nameProduct}">
+                  <img src="${product.image}" alt="${product.nameProduct}">
               </div>
               <p class="nameProduct">${product.nameProduct}</p>
               <p class="detailsProduct">${product.detailsProduct}</p>
