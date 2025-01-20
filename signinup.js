@@ -16,6 +16,9 @@ import {
 const signUpForm = document.getElementById("sign-up-form");
 const registrationMessage = document.getElementById("registrationMessage");
 
+const signUpForm = document.getElementById("sign-up-form");
+const registrationMessage = document.getElementById("registrationMessage");
+
 signUpForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -80,8 +83,8 @@ signUpForm.addEventListener("submit", async (e) => {
 
     registrationMessage.textContent = "Registration successful!";
     setTimeout(() => {
-      window.location.href = "./index.html"; // توجيه المستخدم إلى الصفحة الرئيسية
-    }, 1000);
+      window.location.href = "./index.html";
+    }, 300);
   } catch (error) {
     registrationMessage.textContent = `${error.message}`;
   }
@@ -129,7 +132,7 @@ signInForm.addEventListener("submit", async (e) => {
     signInMessage.textContent = "Sign-in successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
-    }, 1000);
+    }, 300);
   } catch (error) {
     signInMessage.textContent = `${error.message}`;
   }
@@ -164,7 +167,7 @@ googleSignInBtn.addEventListener("click", async () => {
     registrationMessage.textContent = "Google sign-in successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
-    }, 4000);
+    }, 300);
   } catch (error) {
     registrationMessage.textContent = `${error.message}`;
   }
@@ -199,7 +202,7 @@ googleSignUpBtn.addEventListener("click", async () => {
     registrationMessage.textContent = "Google sign-up successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
-    }, 4000);
+    }, 300);
   } catch (error) {
     registrationMessage.textContent = `${error.message}`;
   }
