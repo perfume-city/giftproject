@@ -211,50 +211,40 @@ color: #000;
 }
 
 .billing-form input,
-.billing-form select,
-.billing-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
-}
+  .billing-form select,
+  .billing-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+  }
 
-.billing-form textarea {
-  resize: vertical;
-}
+  .billing-form textarea {
+    resize: vertical;
+  }
+  #paymentMethod{
+    width: 50%;
+  }
 
-#billingForm .submitButton {
-  width: 10rem;
-  padding: 8px;
-  background-color:rgb(199, 156, 64);
-  color: #fff;
-  border: none;
-  border-radius: 5rem;
-  font-size: 1em;
-  cursor: pointer;
-  margin-left: 15rem;
-  
-}
+   #submitButton {
+    width: 10%;
+    padding: 8px;
+    background-color:rgb(199, 156, 64);
+    color: #fff;
+    border: none;
+    border-radius: 5rem;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 15rem;
 
-#billingForm .submitButton:hover {
-  background-color:rgb(148, 106, 0);
-}
-#delButton{
-  background-color:rgb(200, 42, 10);
-  width: 10rem;
-  padding: 8px;
-  color: #fff;
-  border: none;
-  border-radius: 5rem;
-  font-size: 1em;
-  cursor: pointer;
-  margin-left: 15rem;
-}
-#billingForm .delButton:hover {
-  background-color:rgb(102, 0, 0)
-}
+  }
+
+ #submitButton:hover {
+    background-color:rgb(225, 167, 22);
+  }
+
 
 /*  Footer  */
 .footer {

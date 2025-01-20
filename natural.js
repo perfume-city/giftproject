@@ -81,7 +81,7 @@ async function getPerfumeMenItems() {
                 <button class="add-to-favorites" 
                     data-id="${key}" 
                     data-name="${naturalProducts.nameProduct}" 
-                    data-image="image/${naturalProducts.image}" 
+                    data-image="${naturalProducts.image}" 
                     data-price="${naturalProducts.price}" 
                     data-details="${naturalProducts.detailsProduct}">
                     <span><i class="fa-solid fa-heart" style="color: #ed4040;"></i></span>

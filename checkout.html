@@ -104,28 +104,30 @@
               </div>
             </div>
 
-            <div class="col-md-6">
-              <h4>Product Details</h4>
-              <img src="product.jpg" alt="Product Image" class="img-fluid mb-3">
-              <p><strong>Price:</strong> $99.99</p>
-              <button type="delete" id="delButton" class="delButton">delete</button>
+<!-- <div class="col-md-6">
+                  <h4>Product Details</h4>
+                  <img src="product.jpg" alt="Product Image" class="img-fluid mb-3">
+                  <p><strong>Price:</strong> $99.99</p>
+                  <button type="delete" id="delButton" class="delButton">delete</button>
+                  <div id="productDetails" class="mb-4">
+                    <!-- سيتم تعبئة تفاصيل المنتج هنا -->
+                  <!-- </div> --> -->
 
-              <div id="productDetails" class="mb-4">
-                <!-- سيتم تعبئة تفاصيل المنتج هنا -->
+                  <h4>Payment Method</h4>
+                  <div class="mb-3">
+                    <label for="paymentMethod" class="form-label">Choose Payment Method</label>
+                    <select class="form-select" id="paymentMethod" name="paymentMethod" required>
+                      <option value="creditCard">Credit Card</option>
+                      <option value="paypal">PayPal</option>
+                      <option value="bankTransfer">Bank Transfer</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-
-              <h4>Payment Method</h4>
-              <div class="mb-3">
-                <label for="paymentMethod" class="form-label">Choose Payment Method</label>
-                <select class="form-select" id="paymentMethod" name="paymentMethod" required>
-                  <option value="creditCard">Credit Card</option>
-                  <option value="paypal">PayPal</option>
-                  <option value="bankTransfer">Bank Transfer</option>
-                </select>
-              </div>
-            </div>
+              <button type="submit" id="submitButton" class="submitButton">Confirm</button>
+            </form>
           </div>
-          <button type="submit" id="submitButton" class="submitButton">Confirm</button>
+        </div>
         </form>
       </div>
     </div>
