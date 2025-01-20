@@ -179,6 +179,9 @@ h2 span {
   position: relative;
   overflow: hidden;
 }
+.gift-link {
+  text-decoration: none;
+}
 
 .item {
   width: 10vw;
