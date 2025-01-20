@@ -43,7 +43,7 @@ async function getFavorites() {
               <i class="fa fa-trash"></i>
             </button></td>
           <td>
-            <button class="add-to-cart-btn">Proceed</button>
+            <a href = "checkout.html" ><button class="add-to-cart-btn">Proceed</button></a>
            
           </td>
         `;
