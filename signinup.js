@@ -12,14 +12,14 @@ import {
   firestore,
   database,
 } from "./firebaseConfig.js";
-                                                            
-const signUpForm = document.getElementById("sign-up-form");                        
-const registrationMessage = document.getElementById("registrationMessage");             
 
-signUpForm.addEventListener("submit", async (e) => {             
-  e.preventDefault();                             
-                                                    
-  const formData = new FormData(signUpForm);                                                                                                               
+const signUpForm = document.getElementById("sign-up-form");
+const registrationMessage = document.getElementById("registrationMessage");
+
+signUpForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(signUpForm);
   const username = formData.get("username");
   const email = formData.get("email");
   const password = formData.get("password");
@@ -70,7 +70,7 @@ signUpForm.addEventListener("submit", async (e) => {
     registrationMessage.textContent = "Registration successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
-    }, 1000);
+    }, 300);
   } catch (error) {
     registrationMessage.textContent = `${error.message}`;
   }
@@ -116,7 +116,7 @@ signInForm.addEventListener("submit", async (e) => {
     signInMessage.textContent = "Sign-in successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
-    }, 1000);
+    }, 300);
   } catch (error) {
     signInMessage.textContent = `${error.message}`;
   }
@@ -148,7 +148,7 @@ googleSignInBtn.addEventListener("click", async () => {
     registrationMessage.textContent = "Google sign-in successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
-    }, 4000);
+    }, 300);
   } catch (error) {
     registrationMessage.textContent = `${error.message}`;
   }
@@ -180,7 +180,7 @@ googleSignUpBtn.addEventListener("click", async () => {
     registrationMessage.textContent = "Google sign-up successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
-    }, 4000);
+    }, 300);
   } catch (error) {
     registrationMessage.textContent = `${error.message}`;
   }
@@ -207,7 +207,7 @@ facebookSignInBtn.addEventListener("click", async () => {
     registrationMessage.textContent = "Facebook sign-in successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
-    }, 4000);
+    }, 300);
   } catch (error) {
     registrationMessage.textContent = `${error.message}`;
   }
@@ -234,7 +234,7 @@ facebookSignUpBtn.addEventListener("click", async () => {
     registrationMessage.textContent = "Facebook sign-up successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
-    }, 4000);
+    }, 300);
   } catch (error) {
     registrationMessage.textContent = `${error.message}`;
   }

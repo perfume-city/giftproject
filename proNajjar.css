@@ -174,8 +174,7 @@ h2 span {
   margin: 40px auto;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1),
-    0 20px 50px -12px rgba(0, 0, 0, 1.25);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   position: relative;
   overflow: hidden;
