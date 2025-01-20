@@ -16,8 +16,6 @@ import {
 const signUpForm = document.getElementById("sign-up-form");
 const registrationMessage = document.getElementById("registrationMessage");
 
-const signUpForm = document.getElementById("sign-up-form");
-const registrationMessage = document.getElementById("registrationMessage");
 
 signUpForm.addEventListener("submit", async (e) => {
   e.preventDefault();
