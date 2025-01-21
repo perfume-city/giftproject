@@ -4,74 +4,31 @@ body {
     margin: 0;
     padding: 0;
 }
-/* Navbar Styles */
+/* navbar style */
 .navbar {
     width: 100%;
     background-color: #f8f8f8;
     border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    position: sticky; /* Make the navbar sticky */
-    top: 0; /* Sticks to the top of the viewport */
-    z-index: 1000; /* Ensures it stays above other elements */
-}
-
-.nav-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
+    padding: 20px;
+    position: sticky;
+    /* Make the navbar sticky */
+    top: 0;
+    /* Sticks to the top of the viewport */
+    z-index: 1000;
+    /* Ensures it stays above other elements */
 }
 
 /* Logo */
-.logo-container {
-    margin-bottom: 15px;
-}
-
 .logo-image {
-    width: 12rem; /* Adjust logo size */
+    width: 11rem;
+    /* Adjust logo size */
     height: auto;
-}
-
-/* Categories and Search Bar */
-.categories-search-container {
-    display: flex;  /* Align items horizontally */
-    justify-content: space-between;  /* Space between categories and search bar */
-    align-items: center;  /* Center items vertically */
-    gap: 20px;  /* Space between categories and search bar */
-    width: 100%;
-}
-
-/* Categories */
-.categories {
-    list-style: none;
-    display: flex; /* Keep items in a row */
-    gap: 20px;  /* Space between links */
-    margin: 0;
-    padding: 0;
-}
-
-.categories li a {
-    text-decoration: none;
-    color: #555;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.categories li a:hover {
-    color: #000;
 }
 
 /* Search Bar */
 .search-bar {
-    flex-shrink: 0; /* Prevent the search bar from shrinking */
-    width: 300px; /* Adjust width as needed */
-    height: 40px; /* Adjust height as needed */
-    display: flex;
-    align-items: center;
+    width: 350px;
+    height: 40px;
     border: 1px solid #ddd;
     border-radius: 25px;
     overflow: hidden;
@@ -87,16 +44,14 @@ body {
     border: none;
     outline: none;
     padding: 8px 10px;
-    flex: 1;
+    /* flex: 1; */
     font-size: 1rem;
 }
-.search-bar .searchBox{
-    display: flex;
-       
-    }
-    .search-bar .searchBox button{
-        justify-self: end;
-    }
+
+.search-bar .searchBox button {
+    justify-self: end;
+}
+
 .search-bar button {
     border: none;
     outline: none;
@@ -114,11 +69,7 @@ body {
 
 /* Icons Section */
 .icons-container {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 .icon-link {

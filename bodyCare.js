@@ -45,7 +45,7 @@ function addToFavorites(product) {
 async function getPerfumeMenItems() {
   const dbRef = ref(db);
   try {
-    const snapshot = await get(child(dbRef, "bodyCare"));
+    const snapshot = await get(child(dbRef, "Products/bodyCare"));
     if (snapshot.exists()) {
       const data = snapshot.val();
 
@@ -73,18 +73,18 @@ async function getPerfumeMenItems() {
                     <i class="fa-solid fa-star" style="color: #b99765;"></i>
                 </span>
             </strong>
-            <p class="price">${bodyCare.price}.00JD</p>
-            <a href="detailsBody.html?id=${key}" class="more-details">Read More</a>
-            <span>
-                <button class="add-to-favorites" 
-                    data-id="${key}" 
-                    data-name="${bodyCare.nameProduct}" 
-                    data-image="${bodyCare.image}" 
-                    data-price="${bodyCare.price}" 
-                    data-details="${bodyCare.detailsProduct}">
-                    <span><i class="fa-solid fa-heart" style="color: #ed4040;"></i></span>
-                </button>
-            </span>
+            <p class="price">${bodyCare.price}.00 JD</p>
+          <div class="button-container">
+            <a href="details.html?category=bodyCare&id=${key}" class="more-details">View More</a>
+            <button class="add-to-favorites" 
+              data-id="${key}" 
+              data-name="${bodyCare.nameProduct}" 
+              data-image="${bodyCare.image}" 
+              data-price="${bodyCare.price}" 
+              data-details="${bodyCare.detailsProduct}">
+             <span><i class="fa-solid fa-heart" style="color: #ed4040;"></i></span>
+            </button>
+          </div>
         `;
 
         // إضافة حدث النقر للزر "Add to Favorites"

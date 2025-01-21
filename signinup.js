@@ -14,8 +14,7 @@ import {
 } from "./firebaseConfig.js";
 
 const signUpForm = document.getElementById("sign-up-form");
-const registrationMessage = document.getElementById("registrationMessage");
-
+const registrationMessage = document.getElementById("signUpMessage");
 
 signUpForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -24,6 +23,7 @@ signUpForm.addEventListener("submit", async (e) => {
   const username = formData.get("username");
   const email = formData.get("email");
   const password = formData.get("password");
+  const confirmPassword = formData.get("confirm-password");
   const phoneNumber = formData.get("phonenumber");
 
   // Regex patterns for email and password validation
@@ -31,7 +31,7 @@ signUpForm.addEventListener("submit", async (e) => {
   const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
   const phoneNumberPattern = /^07\d{8}$/;
 
-  if (!username || !email || !password || !phoneNumber) {
+  if (!username || !email || !password || !confirmPassword || !phoneNumber) {
     registrationMessage.textContent = "Please fill in all fields.";
     return;
   }
@@ -44,6 +44,10 @@ signUpForm.addEventListener("submit", async (e) => {
   if (!passwordPattern.test(password)) {
     registrationMessage.textContent =
       "Password must be at least 8 characters long and contain at least one numeric digit, one uppercase and one lowercase letter.";
+    return;
+  }
+  if (password !== confirmPassword) {
+    registrationMessage.textContent = "Passwords do not match.";
     return;
   }
 
@@ -77,7 +81,6 @@ signUpForm.addEventListener("submit", async (e) => {
     // تخزين بيانات المستخدم في localStorage
     localStorage.setItem("userData", JSON.stringify(userData));
     localStorage.setItem("isNewUser", "true"); // تحديد المستخدم كجديد
-    console.log("UID stored in localStorage:", user.uid); // طباعة uid للتأكد
 
     registrationMessage.textContent = "Registration successful!";
     setTimeout(() => {
@@ -88,6 +91,7 @@ signUpForm.addEventListener("submit", async (e) => {
   }
 });
 
+// sign in form
 
 const signInForm = document.getElementById("sign-in-form");
 const signInMessage = document.getElementById("signInMessage");
@@ -126,7 +130,7 @@ signInForm.addEventListener("submit", async (e) => {
     localStorage.setItem("userData", JSON.stringify(userData));
     localStorage.setItem("isNewUser", "false"); // Mark as returning user
     localStorage.setItem("uid", user.uid); // Store uid
-    console.log("UID stored in localStorage:", user.uid); // Check if uid is stored
+
     signInMessage.textContent = "Sign-in successful!";
     setTimeout(() => {
       window.location.href = "./index.html";
@@ -160,7 +164,6 @@ googleSignInBtn.addEventListener("click", async () => {
     localStorage.setItem("userData", JSON.stringify(userData));
     localStorage.setItem("isNewUser", "true"); // Mark as new user
     localStorage.setItem("uid", user.uid); // Store uid
-    console.log("UID stored in localStorage:", user.uid); // Check if uid is stored
 
     registrationMessage.textContent = "Google sign-in successful!";
     setTimeout(() => {
@@ -195,7 +198,6 @@ googleSignUpBtn.addEventListener("click", async () => {
     localStorage.setItem("userData", JSON.stringify(userData));
     localStorage.setItem("isNewUser", "true"); // Mark as new user
     localStorage.setItem("uid", user.uid); // Store uid
-    console.log("UID stored in localStorage:", user.uid); // Check if uid is stored
 
     registrationMessage.textContent = "Google sign-up successful!";
     setTimeout(() => {
@@ -205,7 +207,6 @@ googleSignUpBtn.addEventListener("click", async () => {
     registrationMessage.textContent = `${error.message}`;
   }
 });
-
 
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
