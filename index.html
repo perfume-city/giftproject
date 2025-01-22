@@ -12,55 +12,77 @@
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="homePage.css" />
- </head>
+</head>
 
 <body>
   <!-- Sticky Navbar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <!-- Logo (Top Section) -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid nav-container">
+      <!-- Logo (Left Section) -->
       <div class="logo-container">
-        <a href="index.html">
+        <a class="navbar-brand" href="index.html">
           <img src="./images/logo.png" alt="Logo" class="logo-image" />
         </a>
       </div>
 
-      <!-- Categories and Search Bar (Middle Section) -->
-      <div class="categories-search-container">
-        <ul class="categories">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="natural.html">Natural</a></li>
-          <li><a href="bodyCare.html">Body</a></li>
-          <li><a href="hairCare.html">Hair</a></li>
-          <li><a href="PerfumeW.html">Women Perfume</a></li>
-          <li><a href="perfumeM.html">Men Perfume</a></li>
-          <li><a href="proNajar.html">Gift Box</a></li>
-          <li><a href="aboutus.html">About us</a></li>
-          <li><a href="contact.html">Contact us</a></li>
+      <!-- Navbar Toggler for Mobile View -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Content -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <!-- Categories (Left Section) -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 categories">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <!-- Dropdown for Natural -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="naturalDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Natural Products</a>
+            <ul class="dropdown-menu" aria-labelledby="naturalDropdown">
+              <li><a class="dropdown-item" href="natural.html">Face</a></li>
+              <li><a class="dropdown-item" href="bodyCare.html">Body</a></li>
+              <li><a class="dropdown-item" href="hairCare.html">Hair</a></li>
+            </ul>
+          </li>
+          <!-- Dropdown for Perfume Women -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="perfumeDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Perfumes</a>
+            <ul class="dropdown-menu" aria-labelledby="perfumeDropdown">
+              <li><a class="dropdown-item" href="PerfumeW.html">Women Perfume</a></li>
+              <li><a class="dropdown-item" href="perfumeM.html">Men Perfume</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="proNajar.html">Gift Box</a></li>
+          <li class="nav-item"><a class="nav-link" href="aboutus.html">About us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
         </ul>
-        <!-- Search Bar -->
-        <div class="search-bar">
-          <form class="searchBox" id="searchForm" action="searchresult.html" method="GET">
-            <input type="text" id="searchInput" name="query" placeholder="Search products..." required />
+
+        <!-- Search Bar (Middle Section) -->
+        <div class="search-bar mx-auto">
+          <form class="searchBox d-flex" id="searchForm" action="searchresult.html" method="GET">
+            <input class="form-control me-2" type="text" id="searchInput" name="query"
+              placeholder="Search products..." />
             <button type="submit"><i class="fas fa-search"></i></button>
           </form>
         </div>
-      </div>
 
-      <!-- Icons (Right Section) -->
-      <div class="icons-container">
-        <div class="icon-link profile-icon" id="profileIcon">
-          <a href="#"><i class="fas fa-user"></i></a>
-          <span id="profileName">Sign In</span>
-        </div>
-        <div class="icon-link wishlist-icon">
-          <a href="wichlist.html"><i class="fas fa-heart"></i></a>
-          <span>Wishlist</span>
-        </div>
-
-        <!-- Logout Button (Initially hidden) -->
-        <div class="icon-link" id="logoutButton" style="display: none">
-          <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><Span> Log Out</Span></a>
+        <!-- Icons (Right Section) -->
+        <div class="d-flex icons-container">
+          <div class="icon-link profile-icon" id="profileIcon">
+            <a href="#"><i class="fas fa-user"></i></a>
+            <span id="profileName">Sign In</span>
+          </div>
+          <div class="icon-link wishlist-icon">
+            <a href="wichlist.html"><i class="fas fa-heart"></i></a>
+            <span>Wishlist</span>
+          </div>
+          <!-- Logout Button (Initially hidden) -->
+          <div class="icon-link" id="logoutButton" style="display: none">
+            <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><span> Log Out</span></a>
+          </div>
         </div>
       </div>
     </div>
@@ -174,83 +196,7 @@
     <h2 class="title">Best Sellers</h2>
     <div class="slider-container">
       <button class="arrow left-arrow">&lt;</button>
-      <div class="content">
-        <div class="productCard">
-          <div class="product-image">
-            <img src="./image/giorgio armani.jpeg" alt="Giorgio Armani Code Parfum" />
-          </div>
-          <div class="project-info">
-            <p class="nameProduct">Giorgio Armani Code Parfum 125Ml</p>
-            <p class="detailsProduct">
-              Bold, fresh, and spicy masculine scent
-            </p>
-            <strong class="project-title">
-              <p class="price">121.00JD</p>
-              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
-            </strong>
-          </div>
-        </div>
-        <div class="productCard">
-          <div class="product-image">
-            <img src="./image/me purple.jpeg" alt="Giorgio Armani Code Parfum" />
-          </div>
-          <div class="project-info">
-            <p class="nameProduct">Colour Me Purple 100ML</p>
-            <p class="detailsProduct">
-              Timeless, floral, and sophisticated elegance            </p>
-            <strong class="project-title">
-              <p class="price">16.00JD</p>
-              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
-            </strong>
-          </div>
-        </div>
-        <div class="productCard">
-          <div class="product-image">
-            <img src="https://s.alicdn.com/@sc04/kf/Hc0dd94f3216f433b883c06173ef5af11c.jpg_720x720q50.jpg" alt="Giorgio Armani Code Parfum" />
-          </div>
-          <div class="project-info">
-            <p class="nameProduct">Cheap Customize Rosemary</p>
-            <p class="detailsProduct">
-              Cheap Customize Rosemary Bio hair care shampoo hair growth
-            </p>
-            <strong class="project-title">
-              <p class="price">35.00JD</p>
-              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
-            </strong>
-          </div>
-        </div>
-        <div class="productCard">
-          <div class="product-image">
-            <img src="./image/21663a3f5043ab26088b5ee6cb7f1d7d.jpg" alt="Giorgio Armani Code Parfum" />
-          </div>
-          <div class="project-info">
-            <p class="nameProduct">Smoother Frizz Control Styling Hair Cream 100ml</p>
-            <p class="detailsProduct">
-              smooths, conditions and strengthens without adding hold or excess weight.
-            </p>
-            <strong class="project-title">
-              <p class="price">12.00JD</p>
-              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
-            </strong>
-          </div>
-        </div>
-        <div class="productCard">
-          <div class="product-image">
-            <img src="https://s.alicdn.com/@sc04/kf/Hdf3bd8f0a9d949f9885aee43ce26c16d1.jpg_720x720q50.jpg" alt="Giorgio Armani Code Parfum" />
-          </div>
-          <div class="project-info">
-            <p class="nameProduct">Body Mud Mask</p>
-            <p class="detailsProduct">
-              Cleanses,controls excess oils and calms your skin
-            </p>
-            <strong class="project-title">
-              <p class="price">5.00JD</p>
-              <!-- <a href="detailsPerfume.html" class="more-details">Read More</a> -->
-            </strong>
-          </div>
-        </div>
-        <!-- Repeat other product cards -->
-      </div>
+      <div class="content"></div>
       <button class="arrow right-arrow">&gt;</button>
     </div>
   </section>
@@ -353,12 +299,10 @@
           <h3 class="footer-title">Quick Menu</h3>
           <ul class="footer-menu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="natural.html">Natural</a></li>
-            <li><a href="bodyCare.html">Body</a></li>
-            <li><a href="hairCare.html">Hair</a></li>
-            <li><a href="perfumeM.html">Men Perfumes</a></li>
-            <li><a href="PerfumeW.html">Women Perfumes</a></li>
+            <li><a href="natural.html">Natural Products</a></li>
+            <li><a href="proMarya.html">Refill Scheme</a></li>
             <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
           </ul>
         </div>
       </div>
@@ -409,9 +353,9 @@
       content.scrollBy({ left: 240, behavior: "smooth" });
     });
   </script>
+  <script type="module" src="homePage.js"></script>
   <script type="module" src="search.js"></script>
   <script type="module" src="signchecked.js"></script>
-  <!-- <script type="module" src="search.js"></script> -->
 </body>
 
 </html>

@@ -47,7 +47,7 @@ function addToFavorites(product) {
 async function getPerfumeMenItems() {
   const dbRef = ref(db);
   try {
-    const snapshot = await get(child(dbRef, "naturalProducts"));
+    const snapshot = await get(child(dbRef, "Products/natural"));
     if (snapshot.exists()) {
       const data = snapshot.val();
 
@@ -76,8 +76,8 @@ async function getPerfumeMenItems() {
                 </span>
             </strong>
             <p class="price">${naturalProducts.price}.00JD</p>
-            <a href="detailsNatural.html?id=${key}" class="more-details">Read More</a>
-            <span>
+          <div class="button-container">
+            <a href="details.html?category=natural&id=${key}" class="more-details">View More</a>
                 <button class="add-to-favorites" 
                     data-id="${key}" 
                     data-name="${naturalProducts.nameProduct}" 
@@ -86,7 +86,7 @@ async function getPerfumeMenItems() {
                     data-details="${naturalProducts.detailsProduct}">
                     <span><i class="fa-solid fa-heart" style="color: #ed4040;"></i></span>
                 </button>
-            </span>
+            </div>
             `;
           // إضافة حدث النقر للزر "Add to Favorites"
           productCard.querySelector(".add-to-favorites").addEventListener("click", (e) => {

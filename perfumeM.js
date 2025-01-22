@@ -44,7 +44,7 @@ function addToFavorites(product) {
 async function getPerfumeMenItems() {
   const dbRef = ref(db);
   try {
-    const snapshot = await get(child(dbRef, "perfumMen"));
+    const snapshot = await get(child(dbRef, "Products/perfumeM"));
     if (snapshot.exists()) {
       const data = snapshot.val();
 
@@ -56,7 +56,7 @@ async function getPerfumeMenItems() {
       Object.entries(data).forEach(([key, perfume]) => {
         const productCard = document.createElement("div");
         productCard.className = "productCard";
-
+        let category = "";
         productCard.innerHTML = `
             <div class="product-image">
                 <img src="${perfume.image}" alt="${perfume.name}">
@@ -73,15 +73,17 @@ async function getPerfumeMenItems() {
                 </span>
             </strong>
             <p class="price">${perfume.price}.00JD</p>
-            <a href="detailsMen.html?id=${key}" class="more-details">Read More</a>
-           <span> <button class="add-to-favorites" 
+          <div class="button-container">
+            <a href="details.html?category=perfumeM&id=${key}" class="more-details">View More</a>
+            <button class="add-to-favorites" 
                 data-id="${key}" 
                 data-name="${perfume.nameProduct}" 
                 data-image="${perfume.image}" 
                 data-price="${perfume.price}" 
                 data-details="${perfume.detailsProduct}">
                 <span><i class="fa-solid fa-heart" style="color: #ed4040;"></i></span>
-            </button></span>
+            </button>
+          </div>
         `;
 
         // إضافة حدث النقر للزر "Add to Favorites"
