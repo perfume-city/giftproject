@@ -11,6 +11,8 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="homePage.css" />
 </head>
 
@@ -165,7 +167,7 @@
   </div>
 
   <!-- banners -->
-  <div class="banner-box">
+  <div class="banner-box" data-aos="fade-up" data-aos-duration="1000">
     <div class="banner left-banner">
       <div class="text">
         <p class="sub">Recycle Your Empty Bottles & Save</p>
@@ -193,8 +195,8 @@
   </div>
   <!-- Best Sellers -->
   <section>
-    <h2 class="title">Best Sellers</h2>
-    <div class="slider-container">
+    <h2 class="title" data-aos="fade-up" data-aos-duration="1000">Best Sellers</h2>
+    <div class="slider-container" data-aos="fade-up" data-aos-duration="1000">
       <button class="arrow left-arrow">&lt;</button>
       <div class="content"></div>
       <button class="arrow right-arrow">&gt;</button>
@@ -202,8 +204,8 @@
   </section>
   <!-- Online Benefits -->
   <div class="online-benefits">
-    <h2 class="benefits-title">OUR EXCLUSIVE BENEFITS</h2>
-    <div class="benefits-box">
+    <h2 class="benefits-title" data-aos="fade-up" data-aos-duration="1000">OUR EXCLUSIVE BENEFITS</h2>
+    <div class="benefits-box" data-aos="fade-up" data-aos-duration="1000">
       <div class="benefit-item">
         <img src="./images/worldwide.png" alt="Worldwide Shipping" />
         <p class="benefit-title">WORLDWIDE SHIPPING</p>
@@ -230,7 +232,7 @@
   <div class="catalog container">
     <div class="category" onclick="location.href='#face'">
       <a href="natural.html"><img src="./images/face care.jpg" alt="Natural" class="grayscale" /></a>
-      <p>Natural</p>
+      <p>Face</p>
     </div>
     <div class="category" onclick="location.href='#body'">
       <a href="bodyCare.html"><img src="./images/body.jpg" alt="Body" class="grayscale" /></a>
@@ -339,8 +341,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    AOS.init();
     const leftArrow = document.querySelector(".left-arrow");
     const rightArrow = document.querySelector(".right-arrow");
     const content = document.querySelector(".content");

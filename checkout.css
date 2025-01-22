@@ -420,6 +420,12 @@ color: #Ab8e66;
 .btn-primary:hover {
   background-color: #003d82;
 }
+.delete-btn {
+  color: red;
+  background-color: none;
+  background: none;
+  border: none;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
