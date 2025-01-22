@@ -132,86 +132,86 @@
     <a class="gift-link" href="checkout.html"><button id="readMoreButtonBox1">Checkout</button></a>
   </div>
 
-  <h2 data-aos="fade-up" data-aos-duration="900">Pure Harmony Kit <br /></h2>
-  <div class="group" id="box2">
-    <div class="item" data-aos="flip-right">
-      <div class="overlay"></div>
-      <div class="menu">
-        <label>Salmon Curry</label>
+    <h2 data-aos="fade-up" data-aos-duration="900">Pure Harmony Kit <br /></h2>
+    <div class="group" id="box2">
+      <div class="item" data-aos="flip-right">
+        <div class="overlay"></div>
+        <div class="menu">
+          <label>S</label>
+        </div>
       </div>
-    </div>
 
-    <div class="item" data-aos="flip-left">
-      <div class="overlay"></div>
-      <div class="menu">
-        <label>Fish Sandwich</label>
+      <div class="item" data-aos="flip-left">
+        <div class="overlay"></div>
+        <div class="menu">
+          <label>F</label>
+        </div>
       </div>
-    </div>
 
-    <div class="item" data-aos="zoom-in-up">
-      <div class="overlay"></div>
-      <div class="menu">
-        <label>Shakshouka</label>
+      <div class="item" data-aos="zoom-in-up">
+        <div class="overlay"></div>
+        <div class="menu">
+          <label>S</label>
+        </div>
       </div>
-    </div>
 
-    <div class="item" data-aos="fade-in">
-      <div class="overlay"></div>
-      <div class="menu">
-        <label>Creme brulee</label>
+      <div class="item" data-aos="fade-in">
+        <div class="overlay"></div>
+        <div class="menu">
+          <label>C</label>
+        </div>
       </div>
     </div>
-  </div>
 
   <div class="btnA">
     <button id="readMoreButtonBox2">Read More</button>
     <a class="gift-link" href="checkout.html"><button id="readMoreButtonBox2">Checkout</button></a>
   </div>
 
-  <h2 data-aos="fade-up" data-aos-duration="900">Velvet Kit<br /></h2>
-  <div class="group" id="box3">
-    <div class="item" data-aos="flip-right">
-      <div class="overlay"></div>
-      <div class="menu">
-        <label>Salmon Curry</label>
+    <h2 data-aos="fade-up" data-aos-duration="900">Velvet Kit<br /></h2>
+    <div class="group" id="box3">
+      <div class="item" data-aos="flip-right">
+        <div class="overlay"></div>
+        <div class="menu">
+          <label>S</label>
+        </div>
       </div>
-    </div>
 
-    <div class="item" data-aos="flip-left">
-      <div class="overlay"></div>
-      <div class="menu">
-        <label>Fish Sandwich</label>
+      <div class="item" data-aos="flip-left">
+        <div class="overlay"></div>
+        <div class="menu">
+          <label>F</label>
+        </div>
       </div>
-    </div>
 
-    <div class="item" data-aos="zoom-in-up">
-      <div class="overlay"></div>
-      <div class="menu">
-        <label>Shakshouka</label>
+      <div class="item" data-aos="zoom-in-up">
+        <div class="overlay"></div>
+        <div class="menu">
+          <label>S</label>
+        </div>
       </div>
-    </div>
 
-    <div class="item" data-aos="fade-in">
-      <div class="overlay"></div>
-      <div class="menu">
-        <label>Creme brulee</label>
+      <div class="item" data-aos="fade-in">
+        <div class="overlay"></div>
+        <div class="menu">
+          <label>C</label>
+        </div>
       </div>
     </div>
-  </div>
 
   <div class="btnA">
     <button id="readMoreButtonBox3">Read More</button>
     <a class="gift-link" href="checkout.html"><button id="readMoreButtonBox3">Checkout</button></a>
   </div>
 
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 class="modal-title">Items</h2>
-      <div id="boxItems"></div>
-      <p id="totalPrice"></p>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 class="modal-title">Items</h2>
+        <div id="boxItems"></div>
+        <p id="totalPrice"></p>
+      </div>
     </div>
-  </div>
 
   <footer class="footer">
     <div class="footer-container">
@@ -332,14 +332,14 @@
           (item) => `
             <div>
               <p><strong>${item.nameProduct}</strong></p>
-              <p>Price: $${item.price}</p>
+              <p>Price: ${item.price}.00JD</p>
               <img src="${item.image}" alt="${item.nameProduct}" style="width: 100px; height: 100px;">
             </div>`
         )
         .join("");
 
-      const totalPrice = data.reduce((total, item) => total + item.price, 0);
-      totalPriceDiv.textContent = `Total Price: $${totalPrice}`;
+        const totalPrice = data.reduce((total, item) => total + item.price, 0);
+        totalPriceDiv.textContent = `Total Price: ${totalPrice}.00JD`;
 
       const modalTitle = document.querySelector(".modal-title");
       modalTitle.textContent = `${boxTitle} Items`;
@@ -362,9 +362,9 @@
         });
     });
 
-    get(ref(database, "hairCare")).then((snapshot) => {
-      const hairCareData = getRandomItems(snapshot, 4);
-      updateBoxContent("#box2", hairCareData);
+      get(ref(database, "box2")).then((snapshot) => {
+        const hairCareData = getRandomItems(snapshot, 4);
+        updateBoxContent("#box2", hairCareData);
 
       document
         .getElementById("readMoreButtonBox2")
@@ -373,16 +373,16 @@
         });
     });
 
-    get(ref(database, "bodyCare")).then((snapshot) => {
-      const bodyCareData = getRandomItems(snapshot, 4);
-      updateBoxContent("#box3", bodyCareData);
+      get(ref(database, "box3")).then((snapshot) => {
+        const bodyCareData = getRandomItems(snapshot, 4);
+        updateBoxContent("#box3", bodyCareData);
 
-      document
-        .getElementById("readMoreButtonBox3")
-        .addEventListener("click", () => {
-          showBoxItemsInModal(bodyCareData, "Box 3");
-        });
-    });
+        document
+          .getElementById("readMoreButtonBox3")
+          .addEventListener("click", () => {
+            showBoxItemsInModal(bodyCareData, "Box 3");
+          });
+      });
   </script>
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

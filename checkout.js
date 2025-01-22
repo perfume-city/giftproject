@@ -3,8 +3,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebas
 import {
   getDatabase,
   ref,
-  push,
   get,
+  push,
+  remove
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
 // Firebase configuration
@@ -23,6 +24,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
+
 // Utility functions
 const formatPrice = (price) => `${parseFloat(price).toFixed(2)} JD`;
 
@@ -36,6 +38,7 @@ function autoFillUserData() {
   }
 }
 
+
 // Fetch purchases from Firebase
 async function fetchPurchases() {
   const purchasesRef = ref(database, "purchases");
@@ -46,23 +49,40 @@ async function fetchPurchases() {
     snapshot.forEach((childSnapshot) => {
       const purchase = childSnapshot.val();
       purchases.push({
+        id: childSnapshot.key,  // إضافة المفتاح الفريد للعنصر
         name: purchase.name,
         price: parseFloat(purchase.price),
       });
     });
     return purchases;
   } else {
-    console.warn("No purchases found in the database.");
+    Swal.fire("No products found!", "No purchases found in the database.", "info");
     return [];
   }
 }
 
-// Calculate totals
-function calculateTotals(items) {
-  const subtotal = items.reduce((sum, item) => sum + item.price, 0);
-  const shipping = 2.0;
-  const total = subtotal + shipping;
-  return { subtotal, shipping, total };
+// حذف المنتج من Firebase مع تأكيد SweetAlert
+async function deleteProduct(productId) {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You can't undo this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Delete Product",
+    cancelButtonText: "Cancel"
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      try {
+        await remove(ref(database, `purchases/${productId}`));
+        Swal.fire("Deleted!", "The product has been successfully deleted.", "success");
+        renderOrderSummary(); // إعادة تحميل القائمة بعد الحذف
+      } catch (error) {
+        Swal.fire("ُError", "An error occurred while deleting the product.", "error");
+      }
+    }
+  });
 }
 
 // Render order summary
@@ -75,7 +95,7 @@ async function renderOrderSummary() {
   // Clear existing content
   productList.innerHTML = "";
 
-  // Render each product
+  // Render each product with delete button
   items.forEach((item) => {
     const productElement = document.createElement("div");
     productElement.className = "product-item";
@@ -84,6 +104,7 @@ async function renderOrderSummary() {
         <h5>${item.name}</h5>
         <p class="product-price">${formatPrice(item.price)}</p>
       </div>
+      <button class="delete-btn" onclick="deleteProduct('${item.id}')"><i class="fa-solid fa-trash"></i></button>
     `;
     productList.appendChild(productElement);
   });
@@ -92,6 +113,14 @@ async function renderOrderSummary() {
   const { subtotal, total } = calculateTotals(items);
   subtotalElement.textContent = formatPrice(subtotal);
   totalElement.textContent = formatPrice(total);
+}
+
+// Calculate totals
+function calculateTotals(items) {
+  const subtotal = items.reduce((sum, item) => sum + item.price, 0);
+  const shipping = 2.0;
+  const total = subtotal + shipping;
+  return { subtotal, shipping, total };
 }
 
 // Create confirmation card
@@ -171,12 +200,20 @@ async function handleFormSubmit(event) {
     document.getElementById("billingForm").style.pointerEvents = "none";
 
     // Show success message
-    alert("Order placed successfully!");
-  } catch (error) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Order Placed',
+      text: 'Your order was placed successfully!',
+    });
+    } catch (error) {
     console.error("Error processing order:", error);
     alert("An error occurred while processing your order. Please try again.");
   }
 }
+
+
+// Make deleteProduct function available globally
+window.deleteProduct = deleteProduct;
 
 // Initialize page
 document.addEventListener("DOMContentLoaded", async () => {
