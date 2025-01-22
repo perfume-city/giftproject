@@ -217,12 +217,12 @@
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: space-between;
-    /* max-width: 1200px; */
     margin: 0 auto;
 }
 
 .footer-section {
     flex: 1 1 30%;
+    margin-left: 1.5rem;
 }
 
 .footer-logo img {
@@ -284,7 +284,6 @@
 }
 
 .footer-contact li {
-    /* display: flex; */
     align-items: center;
     margin: 2rem 0;
 }
@@ -322,27 +321,22 @@
 }
 
 .brand-name {
-    color: #fd7e14;
+    color: #AB8E66;
 }
-
 /* Small Screens (Phones, up to 576px) */
 @media (max-width: 576px) {
     .footer-container {
-        flex-direction: column;
-        /* Stack sections vertically */
-        align-items: center;
-        /* Center align the content */
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center; /* Center align the content */
     }
 
     .footer-section {
         flex: 1 1 auto;
-        text-align: center;
-        /* Center align each section */
+        text-align: center; /* Center align each section */
     }
 
     .footer-logo img {
-        margin: 0 auto;
-        /* Center the logo */
+        margin: 0 auto; /* Center the logo */
     }
 
     .footer-text {
@@ -350,18 +344,15 @@
     }
 
     .quick-menu {
-        margin-right: 0;
-        /* Reset margin for small screens */
+        margin-right: 0; /* Reset margin for small screens */
     }
 }
 
 /* Medium Screens (Tablets, up to 768px) */
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column;
-        /* Stack sections vertically */
-        gap: 1.5rem;
-        /* Adjust spacing between sections */
+        flex-direction: column; /* Stack sections vertically */
+        gap: 1.5rem; /* Adjust spacing between sections */
         align-items: center;
     }
 
@@ -370,8 +361,7 @@
     }
 
     .footer-logo {
-        order: -1;
-        /* Ensure the logo section appears first */
+        order: -1; /* Ensure the logo section appears first */
     }
 
     .quick-menu {

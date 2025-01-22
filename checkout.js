@@ -1,8 +1,13 @@
-// Import the functions you need from the SDKs you need
+// Import Firebase functions
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getDatabase, ref, push, get, remove } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  get,
+} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
-// إعدادات Firebase
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAs4qjVud0NE6lkf-0GEa6VxFaLUhQGiGM",
   authDomain: "contacttest-b225c.firebaseapp.com",
@@ -11,110 +16,183 @@ const firebaseConfig = {
   messagingSenderId: "968546523734",
   appId: "1:968546523734:web:01428f94a0d62c66c139f7",
   measurementId: "G-N9265PDPQ4",
-  databaseURL: "https://gift-16723-default-rtdb.firebaseio.com/"
+  databaseURL: "https://gift-16723-default-rtdb.firebaseio.com/",
 };
 
-// تهيئة Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app); // يجب تعريف قاعدة البيانات
+const database = getDatabase(app);
 
-// Handle form submission
-document.addEventListener("DOMContentLoaded", () => {
-  const billingForm = document.getElementById("billingForm");
+// Utility functions
+const formatPrice = (price) => `${parseFloat(price).toFixed(2)} JD`;
 
-  billingForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    // Validate fields
-    const requiredFields = ["firstName", "lastName", "country", "phone", "email"];
-    let isValid = true;
-
-    requiredFields.forEach((field) => {
-      const input = document.getElementById(field);
-      if (!input.value.trim()) {
-        isValid = false;
-        input.style.border = "2px solid red";
-      } else {
-        input.style.border = "1px solid #ccc";
-      }
-    });
-
-    if (!isValid) {
-      alert("Please fill out all required fields.");
-      return;
-    }
-    const checkoutRef = ref(database, "checkout");
-
-    // Collect form data
-    const formData = {
-      firstName: document.getElementById("firstName").value.trim(),
-      lastName: document.getElementById("lastName").value.trim(),
-      country: document.getElementById("country").value.trim(),
-      phone: document.getElementById("phone").value.trim(),
-      email: document.getElementById("email").value.trim(),
-      refillScheme: document.getElementById("refillScheme").value.trim(),
-      paymentMethod: document.getElementById("paymentMethod").value.trim(),
-    };
-
-    // Store data in Firebase Realtime Database
-   // التأكد من تعريف `database`
-    push(checkoutRef, formData)
-      .then(() => {
-        alert("Data submitted successfully!");
-        document.getElementById("billingForm").reset(); // Clear the form after submission
-      })
-      .catch((error) => {
-        console.error("Error storing data:", error);
-        alert("An error occurred while submitting the data. Please try again.");
-      });
-      console.log("Form Data:", formData);
-  });
-});
-
-// دالة لجلب بيانات checkout وعرضها في DOM
-// جلب معلومات المنتج وعرضها في DOM
-async function fetchProductDetails() {
-  const productRef = ref(database, "perfumMen/${productId}"); // قم بتحديث "specificProductID" بمعرف المنتج المناسب
-  try {
-    const snapshot = await get(productRef);
-    if (snapshot.exists()) {
-      const product = snapshot.val();
-      const productDetailsContainer = document.getElementById("productDetails");
-
-      // إنشاء عرض المنتج
-      productDetailsContainer.innerHTML = `
-        <h4>Product Details</h4>
-        <img src="${product.imageURL}" alt="${product.name}" class="img-fluid mb-3" />
-        <p><strong>Name:</strong> ${product.name}</p>
-        <p><strong>Price:</strong> $${product.price}</p>
-        <p><strong>Description:</strong> ${product.description}</p>
-      `;
-    } else {
-      console.warn("No product details found.");
-    }
-  } catch (error) {
-    console.error("Error fetching product details:", error);
+// Auto-fill user data
+function autoFillUserData() {
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  if (userData) {
+    document.getElementById("Name").value = userData.username || "";
+    document.getElementById("phone").value = userData.phoneNumber || "";
+    document.getElementById("email").value = userData.email || "";
   }
 }
 
-// استدعاء دالة جلب المنتج عند تحميل الصفحة
-document.addEventListener("DOMContentLoaded", () => {
-  fetchProductDetails();
-});
+// Fetch purchases from Firebase
+async function fetchPurchases() {
+  const purchasesRef = ref(database, "purchases");
+  const snapshot = await get(purchasesRef);
 
-// دالة لحذف منتج من checkout
-function removeFromCheckout(productId) {
-  const productRef = ref(database, `checkout/${productId}`);
-  remove(productRef)
-    .then(() => {
-      alert("Item removed from checkout.");
-      const rowToRemove = document.querySelector(`button[data-id="${productId}"]`).closest('tr');
-      rowToRemove.remove(); // حذف الصف من الجدول
-    })
-    .catch((error) => {
-      console.error("Error removing item:", error);
+  if (snapshot.exists()) {
+    const purchases = [];
+    snapshot.forEach((childSnapshot) => {
+      const purchase = childSnapshot.val();
+      purchases.push({
+        name: purchase.name,
+        price: parseFloat(purchase.price),
+      });
     });
+    return purchases;
+  } else {
+    console.warn("No purchases found in the database.");
+    return [];
+  }
 }
 
-// استدعاء الدالة عند تحميل الصفحة
-getCheckoutItems();
+// Calculate totals
+function calculateTotals(items) {
+  const subtotal = items.reduce((sum, item) => sum + item.price, 0);
+  const shipping = 2.0;
+  const total = subtotal + shipping;
+  return { subtotal, shipping, total };
+}
+
+// Render order summary
+async function renderOrderSummary() {
+  const items = await fetchPurchases();
+  const productList = document.getElementById("productList");
+  const subtotalElement = document.getElementById("subtotal");
+  const totalElement = document.getElementById("total");
+
+  // Clear existing content
+  productList.innerHTML = "";
+
+  // Render each product
+  items.forEach((item) => {
+    const productElement = document.createElement("div");
+    productElement.className = "product-item";
+    productElement.innerHTML = `
+      <div class="product-details">
+        <h5>${item.name}</h5>
+        <p class="product-price">${formatPrice(item.price)}</p>
+      </div>
+    `;
+    productList.appendChild(productElement);
+  });
+
+  // Update totals
+  const { subtotal, total } = calculateTotals(items);
+  subtotalElement.textContent = formatPrice(subtotal);
+  totalElement.textContent = formatPrice(total);
+}
+
+// Create confirmation card
+function createConfirmationCard(formData, items) {
+  const confirmationCard = document.getElementById("confirmationCard");
+  const { subtotal, shipping, total } = calculateTotals(items);
+
+  confirmationCard.innerHTML = `
+    <div class="p-4">
+      <h4 class="mb-3">Order Confirmation</h4>
+      <div class="mb-3">
+        <strong>Order Details:</strong>
+        <p>Name: ${formData.firstName}</p>
+        <p>Email: ${formData.email}</p>
+        <p>Shipping to: ${formData.country}</p>
+        <p>Payment Method: ${formData.paymentMethod}</p>
+      </div>
+      <div class="mb-3">
+        <strong>Order Summary:</strong>
+        <p>Subtotal: ${formatPrice(subtotal)}</p>
+        <p>Shipping: ${formatPrice(shipping)}</p>
+        <p class="font-weight-bold">Total: ${formatPrice(total)}</p>
+      </div>
+      <div class="alert alert-success" role="alert">
+        Your order has been placed successfully! A confirmation email will be sent to ${formData.email}.
+      </div>
+    </div>
+  `;
+
+  confirmationCard.style.display = "block";
+}
+
+// Handle form submission
+async function handleFormSubmit(event) {
+  event.preventDefault();
+
+  // Validate form
+  const requiredFields = ["Name", "phone", "email", "country", "paymentMethod"];
+  let isValid = true;
+
+  requiredFields.forEach((field) => {
+    const input = document.getElementById(field);
+    if (!input.value.trim()) {
+      isValid = false;
+      input.style.border = "2px solid red";
+    } else {
+      input.style.border = "1px solid #ccc";
+    }
+  });
+
+  if (!isValid) {
+    alert("Please fill out all required fields.");
+    return;
+  }
+
+  // Collect form data
+  const formData = {
+    firstName: document.getElementById("Name").value.trim(),
+    country: document.getElementById("country").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    paymentMethod: document.getElementById("paymentMethod").value.trim(),
+    items: await fetchPurchases(),
+    orderDate: new Date().toISOString(),
+  };
+
+  try {
+    // Save to Firebase
+    const ordersRef = ref(database, "orders");
+    await push(ordersRef, formData);
+
+    // Create confirmation card
+    createConfirmationCard(formData, formData.items);
+
+    // Clear cart and disable form
+    document.getElementById("billingForm").style.opacity = "0.5";
+    document.getElementById("billingForm").style.pointerEvents = "none";
+
+    // Show success message
+    alert("Order placed successfully!");
+  } catch (error) {
+    console.error("Error processing order:", error);
+    alert("An error occurred while processing your order. Please try again.");
+  }
+}
+
+// Initialize page
+document.addEventListener("DOMContentLoaded", async () => {
+  // Auto-fill user data
+  autoFillUserData();
+
+  // Render order summary with data from Firebase
+  await renderOrderSummary();
+
+  // Set up form submission handler
+  const billingForm = document.getElementById("billingForm");
+  billingForm.addEventListener("submit", handleFormSubmit);
+
+  // Handle payment method changes
+  const paymentMethod = document.getElementById("paymentMethod");
+  paymentMethod.addEventListener("change", (e) => {
+    console.log("Selected payment method:", e.target.value);
+  });
+});

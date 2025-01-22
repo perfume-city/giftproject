@@ -15,153 +15,180 @@
 </head>
 
 <body>
-    <!-- Sticky Navbar -->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid nav-container">
-        <!-- Logo (Left Section) -->
-        <div class="logo-container">
-          <a class="navbar-brand" href="index.html">
-            <img src="./images/logo.png" alt="Logo" class="logo-image" />
-          </a>
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid nav-container">
+      <!-- Logo (Left Section) -->
+      <div class="logo-container">
+        <a class="navbar-brand" href="index.html">
+          <img src="./images/logo.png" alt="Logo" class="logo-image" />
+        </a>
+      </div>
+
+      <!-- Navbar Toggler for Mobile View -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Content -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <!-- Categories (Left Section) -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 categories">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <!-- Dropdown for Natural -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="naturalDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Natural Products</a>
+            <ul class="dropdown-menu" aria-labelledby="naturalDropdown">
+              <li><a class="dropdown-item" href="natural.html">Face</a></li>
+              <li><a class="dropdown-item" href="bodyCare.html">Body</a></li>
+              <li><a class="dropdown-item" href="hairCare.html">Hair</a></li>
+            </ul>
+          </li>
+          <!-- Dropdown for Perfume Women -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="perfumeDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Perfumes</a>
+            <ul class="dropdown-menu" aria-labelledby="perfumeDropdown">
+              <li><a class="dropdown-item" href="PerfumeW.html">Women Perfume</a></li>
+              <li><a class="dropdown-item" href="perfumeM.html">Men Perfume</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="proNajar.html">Gift Box</a></li>
+          <li class="nav-item"><a class="nav-link" href="aboutus.html">About us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
+        </ul>
+
+        <!-- Search Bar (Middle Section) -->
+        <div class="search-bar mx-auto">
+          <form class="searchBox d-flex" id="searchForm" action="searchresult.html" method="GET">
+            <input class="form-control me-2" type="text" id="searchInput" name="query"
+              placeholder="Search products..." />
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
         </div>
-  
-        <!-- Navbar Toggler for Mobile View -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <!-- Navbar Content -->
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <!-- Categories (Left Section) -->
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 categories">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <!-- Dropdown for Natural -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="naturalDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">Natural Products</a>
-              <ul class="dropdown-menu" aria-labelledby="naturalDropdown">
-                <li><a class="dropdown-item" href="natural.html">Face</a></li>
-                <li><a class="dropdown-item" href="bodyCare.html">Body</a></li>
-                <li><a class="dropdown-item" href="hairCare.html">Hair</a></li>
-              </ul>
-            </li>
-            <!-- Dropdown for Perfume Women -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="perfumeDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">Perfumes</a>
-              <ul class="dropdown-menu" aria-labelledby="perfumeDropdown">
-                <li><a class="dropdown-item" href="PerfumeW.html">Women Perfume</a></li>
-                <li><a class="dropdown-item" href="perfumeM.html">Men Perfume</a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="proNajar.html">Gift Box</a></li>
-            <li class="nav-item"><a class="nav-link" href="aboutus.html">About us</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
-          </ul>
-  
-          <!-- Search Bar (Middle Section) -->
-          <div class="search-bar mx-auto">
-            <form class="searchBox d-flex" id="searchForm" action="searchresult.html" method="GET">
-              <input class="form-control me-2" type="text" id="searchInput" name="query"
-                placeholder="Search products..." />
-              <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
+
+        <!-- Icons (Right Section) -->
+        <div class="d-flex icons-container">
+          <div class="icon-link profile-icon" id="profileIcon">
+            <a href="#"><i class="fas fa-user"></i></a>
+            <span id="profileName">Sign In</span>
           </div>
-  
-          <!-- Icons (Right Section) -->
-          <div class="d-flex icons-container">
-            <div class="icon-link profile-icon" id="profileIcon">
-              <a href="#"><i class="fas fa-user"></i></a>
-              <span id="profileName">Sign In</span>
-            </div>
-            <div class="icon-link wishlist-icon">
-              <a href="wichlist.html"><i class="fas fa-heart"></i></a>
-              <span>Wishlist</span>
-            </div>
-            <!-- Logout Button (Initially hidden) -->
-            <div class="icon-link" id="logoutButton" style="display: none">
-              <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><span> Log Out</span></a>
-            </div>
+          <div class="icon-link wishlist-icon">
+            <a href="wichlist.html"><i class="fas fa-heart"></i></a>
+            <span>Wishlist</span>
+          </div>
+          <!-- Logout Button (Initially hidden) -->
+          <div class="icon-link" id="logoutButton" style="display: none">
+            <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i><span> Log Out</span></a>
           </div>
         </div>
       </div>
-    </nav>
-  
-  <!-- Header Section -->
-  <header class="header-style1">
-    <div class="container">
-      <h1 data-aos="flip-down">Refill Scheme</h1>
-      <p class="mission" data-aos="fade-right">Our mission is to create a circular future. As you all know, our
-        ingredients are rescued by-products. But what about our packaging? Well, that's where our packaging return
-        scheme comes in! 🌎</p>
-      <p class="description" data-aos="fade-left">
-        Join us in closing the loop on packaging. From Body Creams to Cleansing Balms, you can now refill your packaging
-        again and again. Circular ingredients, circular packaging—it just makes sense! 💭
-      </p>
     </div>
-  </header>
+  </nav>
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-image-wrapper">
+    <img src="marya imeges/checkout.jpg" alt="Hero Image" class="hero-image">
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <h1 data-aos="flip-down">Refill Scheme</h1>
+      <p class="description" data-aos="fade-left">
+        you can now refill your packaging again and again. Circular ingredients, circular packaging—it just makes sense! 💭, Join us in closing the loop on packaging. From Body Creams to Cleansing Balms
+      </p>
+      <p class="mission" data-aos="fade-right">Our values is to create a circular future. As you all know, our ingredients are rescued by-products. But what about our packaging? Well, that's where our packaging return scheme comes in! 🌎</p>
 
-
-
+    </div>
+  </div>
+</section>
   <!-- Hero Images Section -->
   <section class="hero-images">
     <div class="container">
       <div class="image-row">
-        <img src="./marya imeges/59f79237835b3ef6f7d4c430c5737a29.jpg" alt="Image 1">
+        <img src="marya imeges/cb3095ce039c3ec5797ac8f641aa6b30.jpg" alt="Image 1">
         <img src="./marya imeges/6b086c233716c065567ad9d8d7c2a267.jpg" alt="Image 2">
         <img src="./marya imeges/ba62dc02b73cdf86ef2569b00580a328.jpg" alt="Image 3">
       </div>
     </div>
   </section>
 
-  <!-- How It Works Section -->
-  <section class="how-it-works">
-    <div class="container">
-      <h2>So, how does it work?</h2>
-      <p>From body creams to cleansing balms, you can now refill your packaging again and again. Circular ingredients,
-        circular packaging—it just makes sense!</p>
-      <div class="steps">
-        <div class="step">
-          <h3>Step 1</h3>
+<!-- How It Works Section -->
+<section class="how-it-works">
+  <div class="container">
+    <h2>How It Works</h2>
+    <p>From body creams to cleansing balms, you can now refill your packaging again and again. Circular ingredients, circular packaging—it just makes sense!</p>
+    <div class="steps">
+      <div class="step">
+        <div class="icon">
+          <span>1</span>
+        </div>
+        <div class="content">
+          <h3>Placing an Order</h3>
           <p>Choose the product you'd like to refill from our collection and add it to your basket.</p>
         </div>
-        <div class="step">
-          <h3>Step 2</h3>
+      </div>
+      <div class="step">
+        <div class="icon">
+          <span>2</span>
+        </div>
+        <div class="content">
+          <h3>Filling Out the Form</h3>
           <p>Fill out your return form available on the website.</p>
         </div>
-        <div class="step">
-          <h3>Step 3</h3>
+      </div>
+      <div class="step">
+        <div class="icon">
+          <span>3</span>
+        </div>
+        <div class="content">
+          <h3>Secure Packaging</h3>
           <p>Securely package your empty bottles for return.</p>
         </div>
-        <div class="step">
-          <h3>Step 4</h3>
+      </div>
+      <div class="step">
+        <div class="icon">
+          <span>4</span>
+        </div>
+        <div class="content">
+          <h3>Free Shipping</h3>
           <p>Take it to a post office and ship it to us for free!</p>
         </div>
-        <div class="step">
-          <h3>Step 5</h3>
+      </div>
+      <div class="step">
+        <div class="icon">
+          <span>5</span>
+        </div>
+        <div class="content">
+          <h3>We Refill & Return</h3>
           <p>We'll receive, refill, and return the product to you!</p>
         </div>
-        <div class="step">
-          <h3>Step 6</h3>
-          <p>The magic bit: enjoy 20% off your next purchase.</p>
+      </div>
+      <div class="step">
+        <div class="icon">
+          <span>6</span>
+        </div>
+        <div class="content">
+          <h3>Enjoy Discounts</h3>
+          <p>Enjoy 20% off your next purchase as a reward!</p>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Refillable Products Section -->
-  <section class="refill-products">
-    <div class="container">
-      <h2>Which products can be refilled?</h2>
-      <p>Almost all of our packaging is refillable! From creams to oils, we ensure the best for you and the planet.</p>
-      <div class="product-images">
-        <img src="./marya imeges/1daf9439cbce0d87ff0dbdabd242d647.jpg" alt="Product Image 1">
-        <img src="./marya imeges/02f5511ef771ee228798cfd2df7fe07c.jpg" alt="Product Image 2">
-      </div>
+  </div>
+</section>
+ <!-- Refillable Products Section -->
+ <section class="refill-products">
+  <div class="container">
+    <h2>Which products can be refilled?</h2>
+    <p>Almost all of our packaging is refillable! From creams to oils, we ensure the best for you and the planet.</p>
+    <div class="product-images">
+      <img src="marya imeges/1daf9439cbce0d87ff0dbdabd242d647.jpg" alt="Product Image 1">
+      <img src="marya imeges/02f5511ef771ee228798cfd2df7fe07c.jpg" alt="Product Image 2">
     </div>
-  </section>
-
+  </div>
+ </section>
+ 
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
@@ -226,7 +253,6 @@
     crossorigin="anonymous"></script>
     <script type="module" src="signchecked.js"></script>
     <script type="module" src="search.js"></script>
-
 </body>
 
 </html>

@@ -18,30 +18,44 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 document.addEventListener("DOMContentLoaded", async () => {
-    // استخراج الفئة (category) و المعرف (id) من الرابط
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get("category");
     const productId = urlParams.get("id");
 
-    console.log("Category:", category); // تأكيد استخراج الفئة
-    console.log("Product ID:", productId); // تأكيد استخراج المعرف
-
     if (category && productId) {
         try {
-            // جلب بيانات المنتج من Firebase بناءً على الفئة والمعرف
+            // جلب بيانات المنتج من Firebase
             const dbRef = ref(db);
             const snapshot = await get(child(dbRef, `Products/${category}/${productId}`));
 
             if (snapshot.exists()) {
                 const product = snapshot.val();
 
-                // تحديث الصفحة بمعلومات المنتج
                 document.querySelector(".product-header img").src = product.image;
                 document.querySelector(".product-header img").alt = product.nameProduct;
                 document.querySelector(".product-header h1").textContent = product.nameProduct;
-                document.querySelector(".rating").textContent = "★★★★★"; // أو بناءً على التقييم
-                document.querySelector(".details").innerHTML = `Details: ${product.detailsProduct}`;
+                document.querySelector(".rating").textContent = "★★★★★";
+                document.querySelector(".details").textContent = `Details: ${product.detailsProduct}`;
                 document.querySelector(".price").textContent = `${product.price}.00 JD`;
+
+                // إضافة وظيفة زر الشراء
+                document.getElementById('buyNowBtn').addEventListener('click', async () => {
+                    try {
+                        const purchaseRef = ref(db, 'purchases');
+                        await push(purchaseRef, {
+                            name: product.nameProduct,
+                            price: product.price,
+                            image: product.image,
+                            timestamp: new Date().toISOString()
+                        });
+
+                        alert('تمت إضافة المنتج إلى سلة المشتريات بنجاح!');
+                    } catch (error) {
+                        console.error("Error adding purchase:", error);
+                        alert('حدث خطأ أثناء إضافة المنتج إلى سلة المشتريات.');
+                    }
+                });
+
             } else {
                 console.error("Product not found.");
             }
@@ -53,7 +67,78 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+//////////////////////////reviw/////////////////////////////////////
 
+const userData = JSON.parse(localStorage.getItem("userData"));
+
+// التحقق من حالة تسجيل الدخول
+function isUserSignedIn() {
+  return userData && userData.email; // تحقق من وجود المستخدم والبريد الإلكتروني
+}
+
+// معالجة إرسال النموذج
+
+document.getElementById('reviewForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (!isUserSignedIn()) {
+        Swal.fire({
+            icon: "error",
+            title: "Access Denied",
+            text: "You must be signed in to submit a review. Redirecting to the signup page...",
+            confirmButtonText: "OK",
+        }).then(() => {
+            window.location.href = "signinup.html"; // إعادة التوجيه إلى صفحة التسجيل
+        });
+        return;
+    }
+
+    const name = document.getElementById('name').value;
+    const rating = document.querySelector('input[name="rating"]:checked')?.value;
+    const review = document.getElementById('review').value;
+
+    if (name && rating && review) {
+        // إرسال البيانات إلى Firebase
+        const reviewsRef = ref(db, 'reviews');
+        push(reviewsRef, {
+            name: name,
+            rating: rating,
+            review: review
+        });
+
+        Swal.fire({
+            icon: "success",
+            title: "Review Submitted",
+            text: "Thank you for your feedback!",
+            confirmButtonText: "OK",
+        });
+
+        // تنظيف النموذج بعد الإرسال
+        document.getElementById('reviewForm').reset();
+    } else {
+        Swal.fire({
+            icon: "warning",
+            title: "Incomplete Form",
+            text: "Please enter your name, rating, and review.",
+            confirmButtonText: "OK",
+        });
+    }
+});
+
+// استرجاع التعليقات والتقييمات من Firebase وعرضها في DOM
+const reviewsRef = ref(db, 'reviews');
+onChildAdded(reviewsRef, function (snapshot) {
+    const reviewData = snapshot.val();
+    const stars = '★'.repeat(reviewData.rating);
+    const reviewElement = document.createElement('div');
+    reviewElement.classList.add('review');
+    reviewElement.innerHTML = `
+        <p><strong>${reviewData.name}</strong></p>
+        <p class="star-rating-display">${stars}</p>
+        <p>${reviewData.review}</p>
+    `;
+    document.getElementById('reviews').appendChild(reviewElement);
+});
 
 // الدالة لتحميل المنتجات العشوائية بناءً على الفئة
 async function loadRandomProducts(category) {
@@ -114,43 +199,4 @@ async function loadRandomProducts(category) {
 const categoryFromURL = new URLSearchParams(window.location.search).get("category");
 if (categoryFromURL) {
     loadRandomProducts(categoryFromURL); // تحميل المنتجات العشوائية بناءً على الفئة
-}
-
-//////////////////////////reviw/////////////////////////////////////
-document.getElementById('reviewForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const name = document.getElementById('name').value;
-    const rating = document.querySelector('input[name="rating"]:checked')?.value;
-    const review = document.getElementById('review').value;
-
-    if (name && rating && review) {
-        // إرسال البيانات إلى Firebase
-        const reviewsRef = ref(db, 'reviews');  // تغيير إلى 'ref(db, 'reviews')'
-        push(reviewsRef, {
-            name: name,
-            rating: rating,
-            review: review
-        });
-
-        // تنظيف النموذج بعد الإرسال
-        document.getElementById('reviewForm').reset();
-    } else {
-        alert('Enter Your Name & Rate and Reviews');
-    }
-});
-
-// استرجاع التعليقات والتقييمات من Firebase وعرضها في DOM
-const reviewsRef = ref(db, 'reviews');
-onChildAdded(reviewsRef, function (snapshot) {
-    const reviewData = snapshot.val();
-    const stars = '★'.repeat(reviewData.rating);
-    const reviewElement = document.createElement('div');
-    reviewElement.classList.add('review')
-    reviewElement.innerHTML = `
-        <p><strong>${reviewData.name}</strong></p>
-        <p class="star-rating-display">${stars}</p>
-        <p>${reviewData.review}</p>
-    `;
-    document.getElementById('reviews').appendChild(reviewElement);
-});
+};

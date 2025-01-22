@@ -106,34 +106,6 @@ body {
   text-decoration: underline;
 }
 
-/* الحاوية للصورة */
-.image-container {
-  position: relative; /* لتحديد النص فوق الصورة */
-  text-align: center;
-  margin: 20px auto;
-  max-width: 600px; /* تحديد عرض الصورة */
-  border-radius: 8px; /* حواف دائرية */
-  overflow: hidden; /* لضمان النص لا يخرج عن حواف الصورة */
-}
-
-.image-container img {
-  width: 700px; /* تصغير الحجم */
-  height: 350px; /* الحفاظ على تناسب العرض والارتفاع */
-  opacity: 0.85; /* تقليل شفافية الصورة قليلاً */
-}
-
-.image-container .image-text {
-  position: absolute; /* وضع النص داخل الصورة */
-  top: 50%; /* محاذاة النص في منتصف الصورة عمودياً */
-  left: 50%; /* محاذاة النص في منتصف الصورة أفقياً */
-  transform: translate(-50%, -50%); /* لضبط المركز تمامًا */
-  font-size: 2.5em; /* حجم النص */
-  font-weight: bold;
-  color: white; /* لون النص */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ظل النص */
-  text-transform: uppercase; /* لجعل النص كله بأحرف كبيرة */
-}
-
 
 /* النموذج */
 .billing-Form {
@@ -152,6 +124,8 @@ body {
 }
 
 .row {
+  display: flex;
+  flex-wrap: nowrap !important;
   gap: 30px; /* إضافة مسافة أفقية بين الأعمدة */
 }
 
@@ -370,4 +344,95 @@ color: #Ab8e66;
 .quick-menu {
     margin-right: 0;
 }
+}
+
+
+/*.....................................*/
+
+/* Checkout Specific Styles */
+.order-summary-card,
+.confirmation-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.product-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.product-details {
+  flex-grow: 1;
+}
+
+.product-price {
+  font-weight: bold;
+}
+
+.total-section {
+  margin-top: 20px;
+  border-top: 2px solid #eee;
+  padding-top: 15px;
+}
+
+.total-section > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.2em;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.confirmation-card {
+  background: #f8f9fa;
+  border: 2px solid #28a745;
+}
+
+/* Form Styles */
+.form-label {
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #0056b3;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #003d82;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0.5rem;
+  }
+  
+  .categories {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .col-md-6 {
+    margin-bottom: 2rem;
+  }
 }

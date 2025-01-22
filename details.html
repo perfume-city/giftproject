@@ -13,6 +13,7 @@
   crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="perfume.css">
     <title>Details</title>
 </head>
@@ -105,7 +106,7 @@
                         <label for="quantity">Qty:</label>
                         <input type="number" id="quantity" name="quantity" value="1" min="1">
                     </div>
-                    <a href="checkout.html"><button>Checkout</button></a>
+                    <a href="checkout.html"><button id="buyNowBtn">Checkout</button></a>
                 </div>
             </div>
         </div>
@@ -208,6 +209,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="details.js"></script>
     <script type="module" src="signchecked.js"></script>
     <script type="module" src="search.js"></script>

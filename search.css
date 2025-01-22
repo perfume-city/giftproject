@@ -1,3 +1,26 @@
+.content , .product-container {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+.product-container p {
+    text-align: center;
+    margin: 0.3rem;
+
+}
+ .title {
+    display: flex;
+    justify-content: center;
+    color: #B99765;
+    margin-top: 3rem;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #B99765;
+ }
+
 /*CARD PRODUCT*/
 .productCard {
     background-color: #fff;
@@ -177,6 +200,7 @@
 
 /*end style for nav*/
 /********start style for footer********/
+/*  Footer  */
 .footer {
     background-color: #f8f9fa;
     color: #6c757d;
@@ -189,12 +213,12 @@
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: space-between;
-    /* max-width: 1200px; */
     margin: 0 auto;
 }
 
 .footer-section {
     flex: 1 1 30%;
+    margin-left: 1.5rem;
 }
 
 .footer-logo img {
@@ -256,7 +280,6 @@
 }
 
 .footer-contact li {
-    /* display: flex; */
     align-items: center;
     margin: 2rem 0;
 }
@@ -292,108 +315,52 @@
 .footer-links a:hover {
     color: #343a40;
 }
-/**************end footer*/
-.title {
-    display: flex;
-    justify-content: center;
-    color: #B99765;
-    margin-top: 3rem;
-    font-size: 2.2em;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #B99765; 
+
+.brand-name {
+    color: #AB8E66;
+}
+/* Small Screens (Phones, up to 576px) */
+@media (max-width: 576px) {
+    .footer-container {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center; /* Center align the content */
+    }
+
+    .footer-section {
+        flex: 1 1 auto;
+        text-align: center; /* Center align each section */
+    }
+
+    .footer-logo img {
+        margin: 0 auto; /* Center the logo */
+    }
+
+    .footer-text {
+        text-align: center;
+    }
+
+    .quick-menu {
+        margin-right: 0; /* Reset margin for small screens */
+    }
 }
 
-.image-container {
-    position: relative;
-    /* width: 300px; يمكنك ضبط العرض حسب رغبتك */
-  }
-  
-  .image-container img {
-    width: 100%;
-    border-radius: 10px; /* اختيارية لتنعيم الحواف */
-  }
-  
-  .text-overlay {
-    position: absolute;
-    top: 50%; /* يجعل النص في منتصف الصورة عمودياً */
-    left: 25%; /* يجعل النص في منتصف الصورة أفقياً */
-    transform: translate(-50%, -50%); /* لضبط النص في المركز تماماً */
-    color: white; /* لون النص */
-    font-size: 50px; /* حجم النص */
-    font-weight: bold; /* جعل النص عريضاً */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* ظل لجعل النص أكثر وضوحاً */
-    text-align: center; /* محاذاة النص في المنتصف */
-  }
+/* Medium Screens (Tablets, up to 768px) */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stack sections vertically */
+        gap: 1.5rem; /* Adjust spacing between sections */
+        align-items: center;
+    }
 
+    .footer-section {
+        text-align: center;
+    }
 
-section {
-    padding: 100px 100px;
-}
+    .footer-logo {
+        order: -1; /* Ensure the logo section appears first */
+    }
 
-.content , .product-container {
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-}
-.product-container p {
-    text-align: center;
-    margin: 0.3rem;
-    
-}
-/*CARD PRODUCT*/
-.productCard {
-    background-color: #fff;
-    border: 1px solid #fff;
-    min-height: 14em;
-    width: 240px;
-    overflow: hidden;
-    margin: 20px;
-    transition: 0.7s ease;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;    
-    justify-content: space-between; 
-    padding: 10px;
-    border: 1px solid #B99765;
-    border-radius: 10px;
-}
-
-.productCard:hover {
-   transform: scale(1.1);
-}
-
-.productCard:hover .product-image {
-    opacity: 0.9;
- }
-
-.product-image img{
-    width: 100%;
-    height:200px;
-    
-}
-.project-info {
-    padding: 1em;
-    text-align: center;
-}
-
-.nameProduct {
-    font-size: 0.8em;
-    color: #000;
-}
-.detailsProduct{
-    font-size:0.5em ;
-    color: gray;
-}
-
-.project-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-transform: uppercase;
-    font-weight: 800;
-    margin-top: 10px;
-
+    .quick-menu {
+        margin-right: 0;
+    }
 }
