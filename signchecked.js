@@ -110,43 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Update Error:", error);
       }
     });
-
-    // Delete Profile
-    const deleteButton = document.querySelector(".btn-danger");
-    deleteButton.addEventListener("click", async () => {
-      Swal.fire({
-        title: "Are you sure?",
-        text: "This action will delete your profile and cannot be undone.",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "Cancel",
-      }).then(async (result) => {
-        if (result.isConfirmed) {
-          const userRef = ref(database, `users/${userData.uid}`);
-          try {
-            await set(userRef, null);
-            localStorage.removeItem("userData");
-            localStorage.removeItem("isNewUser");
-
-            Swal.fire({
-              title: "Profile Deleted",
-              text: "Your profile has been deleted successfully.",
-              icon: "success",
-            }).then(() => {
-              window.location.href = "./signinup.html";
-            });
-          } catch (error) {
-            Swal.fire({
-              title: "Error",
-              text: "Failed to delete profile. Please try again later.",
-              icon: "error",
-            });
-            console.error("Delete Error:", error);
-          }
-        }
-      });
-    });
   } else {
     profileName.textContent = "Sign In";
     profileIcon.addEventListener("click", () => {

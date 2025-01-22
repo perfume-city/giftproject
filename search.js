@@ -21,11 +21,11 @@ const db = getDatabase(app);
 async function fetchAllProducts() {
   const dbRef = ref(db);
   const collections = [
-    "naturalProducts",
-    "hairCare",
-    "bodyCare",
-    "perfumWomen",
-    "perfumMen"
+    "Products/naturalProducts",
+    "Products/hairCare",
+    "Products/bodyCare",
+    "Products/perfumWomen",
+    "Products/perfumMen"
   ];
   const allProducts = [];
 
