@@ -4,11 +4,11 @@ LUMIERE is an elegant and user-friendly online gift shop offering a wide range o
 
 ## Live Demo
 
-Explore our online store: [LUMIERE Gift Shop](https://faisal-al-ali1.github.io/giftProject---LUMIERE-/)
+Explore our online store: [LUMIERE Gift Shop](https://perfume-city.github.io/giftproject/)
 
 ## Figma Design
 
-You can view the design of this project here: [[Figma Link](https://www.figma.com/design/AJ1E9FWpWDrg6UwFDge3nc/Untitled?node-id=0-1&t=Ix5VpG3bNLpXAFQG-1)](#)
+You can view the design of this project here: [Figma Link](https://www.figma.com/design/AJ1E9FWpWDrg6UwFDge3nc/Untitled?node-id=0-1&t=Ix5VpG3bNLpXAFQG-1)
 
 ## Features
 
