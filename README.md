@@ -8,7 +8,7 @@ Explore our online store: [LUMIERE Gift Shop](https://faisal-al-ali1.github.io/g
 
 ## Figma Design
 
-You can view the design of this project here: [Figma Link](#)
+You can view the design of this project here: [[Figma Link](https://www.figma.com/design/AJ1E9FWpWDrg6UwFDge3nc/Untitled?node-id=0-1&t=Ix5VpG3bNLpXAFQG-1)](#)
 
 ## Features
 
