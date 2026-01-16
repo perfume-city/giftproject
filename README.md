@@ -52,29 +52,7 @@ You can view the design of this project here: [Figma Link](https://www.figma.com
 
 ## Technologies Used
 
-- **Frontend**: HTML, CSS, JavaScript, Bootstrap, Tailwind CSS
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap
 - **Backend**: Firebase (Real-time Database and Authentication)
 
-## Contributors
 
-- **Alaa Saadi**: Product Owner
-- **Faisal Al-Ali**: Quality Assurance
-- **Mustafa Obeidat**: Web Developer
-- **Ahmad Alnajjar**: Web Developer
-- **Heba Maaitah**: Scrum Master
-- **Marya Benyan**: Web Developer
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/lumiere.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd lumiere
-   ```
-3. Open `index.html` in your browser or use a local development server.
-   
----
-We hope you enjoy exploring LUMIERE and find the perfect gifts for every occasion!
